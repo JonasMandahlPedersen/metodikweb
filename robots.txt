@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://metodik.dk/sitemap.xml
