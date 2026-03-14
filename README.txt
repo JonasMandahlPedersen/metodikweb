@@ -1,17 +1,19 @@
-METODIK PRO SITE
+METODIK FULL DESIGN
 
 Indhold:
 - Forside
-- Løsningssider
-- Cases
-- 5 SEO-artikler
+- Løsningsoversigt + 3 løsningssider
+- Caseoversigt + 3 casesider
+- Artikeloversigt + 5 artikelsider
 - Om-side
 - Kontakt-side
-- sitemap.xml og robots.txt
+- assets/style.css
+- assets/main.js
+- sitemap.xml
+- robots.txt
 
 Sådan bruger du det:
 1. Pak zipfilen ud
-2. Upload alle filer til roden på dit webhotel
-3. Ret kontaktoplysninger i kontakt.html
-4. Tilpas cases med egne resultater og kundedata
-5. Tilføj formular-backend hvis du vil modtage henvendelser fra formularen
+2. Upload alle filer til webhotellets rodmappe
+3. Ret tekst og kontaktoplysninger hvor ønsket
+4. Kobl kontaktformular til mail/backend hvis nødvendigt
