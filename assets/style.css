@@ -237,75 +237,41 @@ textarea{min-height:150px; resize:vertical}
   .hero h2{font-size:2.35rem}
 }
 
-/* Fix: tekst løber ud af kasser i hero / øverst til højre */
-.hero,
-.hero-grid,
-.hero-content,
-.hero-visual,
-.hero-card,
-.hero-mini-card,
-.feature-card,
-.card {
-  min-width: 0;
-  box-sizing: border-box;
-}
-
 .hero-visual {
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+  padding: 24px !important;
+  overflow: visible !important;
 }
 
-.hero-card,
-.hero-mini-card,
-.feature-card,
-.card {
-  max-width: 100%;
-  overflow: hidden;
-  word-break: normal;
-  overflow-wrap: anywhere;
-  hyphens: auto;
+.hero-visual > * {
+  position: static !important;
+  transform: none !important;
+  inset: auto !important;
+
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+
+  box-sizing: border-box !important;
+  padding: 24px !important;
+  overflow: hidden !important;
 }
 
-.hero-card h3,
-.hero-card p,
-.hero-mini-card h3,
-.hero-mini-card p,
-.feature-card h3,
-.feature-card p,
-.card h3,
-.card p {
-  max-width: 100%;
-  overflow-wrap: anywhere;
-  word-break: normal;
+.hero-visual h1,
+.hero-visual h2,
+.hero-visual h3,
+.hero-visual p,
+.hero-visual span {
+  max-width: 100% !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
 }
 
-/* Hvis bokse ligger i grid */
-.hero-visual,
-.hero-cards,
-.feature-grid {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-/* Desktop: behold pænt layout uden overflow */
-@media (min-width: 900px) {
+@media (min-width: 980px) {
   .hero-grid {
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-  }
-
-  .hero-visual,
-  .hero-cards {
-    min-width: 0;
-  }
-}
-
-/* Mobil/tablet */
-@media (max-width: 899px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-visual {
-    margin-top: 32px;
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 520px) !important;
+    gap: 56px !important;
   }
 }
