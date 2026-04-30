@@ -211,14 +211,14 @@ textarea{min-height:150px; resize:vertical}
   position:relative; height:100%;
 }
 .blob{
-  position:absolute; inset:auto;
+  inset:auto;
   border-radius:28px; border:1px solid var(--line);
   background:linear-gradient(135deg, rgba(102,227,255,.15), rgba(91,124,255,.14));
   box-shadow:var(--shadow);
 }
-.blob.one{width:74%;height:145px; right:0; top:6px}
-.blob.two{width:68%;height:170px; left:0; top:120px}
-.blob.three{width:72%;height:150px; right:18px; bottom:4px}
+.blob.one{width:74%;height:145px; float: left}
+.blob.two{width:68%;height:170px; float: right; margin-top: 30px;}
+.blob.three{width:72%;height:150px; float: left; margin-top: 30px;}
 .blob .inner{
   padding:16px 18px;
 }
