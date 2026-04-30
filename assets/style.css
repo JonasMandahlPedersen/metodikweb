@@ -238,25 +238,35 @@ textarea{min-height:150px; resize:vertical}
 }
 
 .hero-visual {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 20px !important;
+  height: auto !important;
+  min-height: unset !important;
+  max-height: none !important;
+
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 18px !important;
+
   padding: 24px !important;
   overflow: visible !important;
 }
 
 .hero-visual > * {
-  position: static !important;
-  transform: none !important;
+  position: relative !important;
+  top: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
   inset: auto !important;
+  transform: none !important;
+  translate: none !important;
 
   width: 100% !important;
   max-width: 100% !important;
   min-width: 0 !important;
+  height: auto !important;
 
+  margin: 0 !important;
   box-sizing: border-box !important;
-  padding: 24px !important;
-  overflow: hidden !important;
 }
 
 .hero-visual h1,
@@ -264,14 +274,25 @@ textarea{min-height:150px; resize:vertical}
 .hero-visual h3,
 .hero-visual p,
 .hero-visual span {
-  max-width: 100% !important;
   overflow-wrap: break-word !important;
   word-break: normal !important;
 }
 
-@media (min-width: 980px) {
-  .hero-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(360px, 520px) !important;
-    gap: 56px !important;
-  }
+.hero-grid,
+.hero-section,
+.hero-inner {
+  height: auto !important;
+  min-height: auto !important;
+  overflow: visible !important;
+}
+
+.hero-visual > *:nth-child(1),
+.hero-visual > *:nth-child(2),
+.hero-visual > *:nth-child(3) {
+  position: relative !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+  bottom: auto !important;
+  margin: 0 !important;
 }
