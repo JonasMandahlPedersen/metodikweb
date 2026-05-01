@@ -1,84 +1,332 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Løsninger | Metodik</title>
-  <meta name="description" content="AI-automatisering, SaaS-udvikling og modernisering af ældre systemer.">
-  <link rel="canonical" href="https://metodik.dk/losninger/">
-  <meta property="og:title" content="Løsninger | Metodik">
-  <meta property="og:description" content="AI-automatisering, SaaS-udvikling og modernisering af ældre systemer.">
-  <meta property="og:url" content="https://metodik.dk/losninger/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Metodik">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Metodik", "url": "https://metodik.dk", "description": "Metodik udvikler AI, SaaS og webbaserede forretningssystemer for virksomheder.", "areaServed": "DK", "serviceType": ["AI automatisering", "SaaS udvikling", "Modernisering af legacy systemer"]}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Løsninger — Metodik</title>
+<meta name="description" content="AI-automatisering, SaaS-platforme og legacy-modernisering. Metodik bygger systemer der fjerner manuelt arbejde og skaber overblik i voksende virksomheder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  .losninger-hero {
+    background: var(--accent);
+    color: #fff;
+    padding: 140px 80px 80px;
+  }
+  .losninger-hero .section-label { color: rgba(255,255,255,0.45); }
+  .losninger-hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(2.6rem, 4vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    max-width: 700px;
+    margin-bottom: 20px;
+  }
+  .losninger-hero-headline em { font-style: italic; opacity: 0.6; }
+  .losninger-hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.05rem;
+    max-width: 560px;
+    line-height: 1.75;
+  }
+
+  /* Big solution cards */
+  .losninger-section { padding: 0; }
+
+  .losning-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .losning-block:nth-child(even) { direction: rtl; }
+  .losning-block:nth-child(even) > * { direction: ltr; }
+
+  .losning-visual {
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .losning-block:nth-child(2) .losning-visual { background: #1a2a3a; }
+  .losning-block:nth-child(3) .losning-visual { background: var(--ink); }
+
+  .losning-icon-wrap {
+    font-size: 5rem;
+    opacity: 0.15;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+  }
+  .losning-visual-label {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+  }
+  .losning-visual-label .big-num {
+    font-family: var(--serif);
+    font-size: 5rem;
+    opacity: 0.12;
+    display: block;
+    line-height: 1;
+    margin-bottom: -20px;
+  }
+  .losning-visual-label h3 {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    position: relative;
+  }
+
+  .losning-content {
+    padding: 72px 72px 72px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--paper);
+  }
+  .losning-block:nth-child(even) .losning-content { padding: 72px 80px 72px 72px; }
+
+  .losning-content .section-label { margin-bottom: 16px; }
+  .losning-title {
+    font-family: var(--serif);
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .losning-title em { font-style: italic; color: var(--accent-light); }
+  .losning-desc {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 32px;
+  }
+  .losning-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .losning-list li {
+    font-size: 0.92rem;
+    color: #3a3a3a;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .losning-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent-light);
+    font-weight: 600;
+  }
+
+  /* How it works strip */
+  .process-section {
+    padding: 100px 80px;
+    background: #fff;
+    border-bottom: 1px solid var(--rule);
+  }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 0;
+  }
+  .process-step {
+    background: #fff;
+    padding: 36px 28px;
+  }
+  .process-step-num {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--rule);
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .process-step-title {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+  .process-step-desc {
+    color: var(--muted);
+    font-size: 0.87rem;
+    line-height: 1.65;
+  }
+
+  @media (max-width: 900px) {
+    .losninger-hero { padding: 100px 24px 48px; }
+    .losning-block { grid-template-columns: 1fr; min-height: auto; direction: ltr !important; }
+    .losning-block:nth-child(even) > * { direction: ltr; }
+    .losning-visual { min-height: 200px; }
+    .losning-content { padding: 48px 24px !important; }
+    .process-section { padding: 64px 24px; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+  }
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="/">
-        <div class="brand-mark"></div>
-        <div>
-          <h1>Metodik</h1>
-          <p>AI • SaaS • forretningssystemer</p>
-        </div>
-      </a>
-      <nav class="nav-links">
-        <a href="/losninger/">Løsninger</a>
-        <a href="/cases/">Cases</a>
-        <a href="/artikler/">Artikler</a>
-        <a href="/om.html">Om</a>
-        <a href="/kontakt.html" class="btn btn-secondary">Kontakt</a>
-      </nav>
-    </div>
-  </header>
 
-<section class="section">
-  <div class="container">
-    <div class="article">
-      <div class="eyebrow">Løsninger</div>
-      <h1 class="page-title">Tre løsningsområder med høj forretningsværdi</h1>
-      <p class="section-intro">Alle sider er designet i samme visuelle univers, så hele websitet føles sammenhængende og premium.</p>
+<nav>
+  <a href="/" class="nav-logo">Metodik</a>
+  <ul class="nav-links">
+    <li><a href="/losninger/">Løsninger</a></li>
+    <li><a href="/cases/">Cases</a></li>
+    <li><a href="/artikler/">Artikler</a></li>
+    <li><a href="/om.html">Om</a></li>
+    <li><a href="/kontakt.html" class="nav-cta">Book sparring</a></li>
+  </ul>
+</nav>
+
+<div class="losninger-hero">
+  <p class="section-label">Løsninger</p>
+  <h1 class="losninger-hero-headline">Tre områder,<br><em>én klar tilgang</em></h1>
+  <p class="losninger-hero-sub">Vi bygger ikke for at imponere med teknologi. Vi bygger for at fjerne det der tager for lang tid, laver for mange fejl eller ikke kan skalere med forretningen.</p>
+</div>
+
+<div class="losninger-section">
+
+  <!-- AI -->
+  <div class="losning-block">
+    <div class="losning-visual">
+      <div class="losning-icon-wrap">🤖</div>
+      <div class="losning-visual-label">
+        <span class="big-num">01</span>
+        <h3>AI-automatisering</h3>
+      </div>
     </div>
-    <div class="grid-3">
-      <article class="card"><div class="icon">🤖</div><h4><a href="/losninger/ai-automatisering.html">AI-automatisering</a></h4><p>Automatisering af support, administration og interne processer.</p></article>
-      <article class="card"><div class="icon">☁️</div><h4><a href="/losninger/saas-udvikling.html">SaaS-udvikling</a></h4><p>Komplette cloudplatforme med brugerroller og drift.</p></article>
-      <article class="card"><div class="icon">🧩</div><h4><a href="/losninger/legacy-modernisering.html">Legacy-modernisering</a></h4><p>Fra Excel og ældre systemer til moderne websetup.</p></article>
+    <div class="losning-content">
+      <p class="section-label">AI & automatisering</p>
+      <h2 class="losning-title">Fra manuelle processer<br>til <em>intelligent flow</em></h2>
+      <p class="losning-desc">
+        AI giver størst værdi hvor der er mange gentagne opgaver, meget fritekst eller store datamængder der skal behandles. Vi starter altid med et konkret problem — ikke med en platform.
+      </p>
+      <ul class="losning-list">
+        <li>Automatisk klassificering og routing af henvendelser</li>
+        <li>AI-assisteret sagsbehandling og svarudkast</li>
+        <li>Dataekstraktion fra fakturaer, formularer og dokumenter</li>
+        <li>Intern videnssøgning og AI-assistenter</li>
+        <li>Monitorering, rapportering og beslutningsstøtte</li>
+      </ul>
+      <a href="/kontakt.html" class="btn-primary" style="align-self:flex-start;">Book sparring om AI</a>
     </div>
   </div>
-</section>
 
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="brand" style="margin-bottom:10px">
-          <div class="brand-mark"></div>
-          <div>
-            <h1>Metodik</h1>
-            <p>Bygget til større løsninger</p>
-          </div>
-        </div>
-        <p class="small">Metodik hjælper virksomheder med at bygge komplette AI- og SaaS-løsninger samt modernisere ældre arbejdsgange til moderne websystemer.</p>
-      </div>
-      <div>
-        <strong>Navigation</strong><br>
-        <a href="/">Forside</a><br>
-        <a href="/losninger/">Løsninger</a><br>
-        <a href="/cases/">Cases</a><br>
-        <a href="/artikler/">Artikler</a><br>
-      </div>
-      <div>
-        <strong>Lead-magnet</strong>
-        <p class="small">Gratis 30 minutters sparring om AI, SaaS eller modernisering af jeres nuværende setup.</p>
-        <a href="/kontakt.html" class="btn btn-primary">Book sparring</a>
+  <!-- SaaS -->
+  <div class="losning-block">
+    <div class="losning-visual">
+      <div class="losning-icon-wrap">☁️</div>
+      <div class="losning-visual-label">
+        <span class="big-num">02</span>
+        <h3>SaaS-platforme</h3>
       </div>
     </div>
-  </footer>
-  <script src="/assets/main.js"></script>
+    <div class="losning-content">
+      <p class="section-label">SaaS-udvikling</p>
+      <h2 class="losning-title">Et produkt der kan<br><em>driftes og sælges</em></h2>
+      <p class="losning-desc">
+        En SaaS-platform er mere end en hjemmeside med login. Det er brugerroller, betalingsflow, administration, cloudarktektur og en kodebase der kan leve. Vi har gjort det før — fra MVP til international skala.
+      </p>
+      <ul class="losning-list">
+        <li>MVP-udvikling med fokus på kerneværdi og time-to-market</li>
+        <li>Brugerroller, onboarding og administrationspanel</li>
+        <li>Betalingsintegration (Stripe, abonnementer, fakturaer)</li>
+        <li>Cloud-arkitektur på Azure eller AWS</li>
+        <li>API-design og tredjeparts-integrationer</li>
+      </ul>
+      <a href="/kontakt.html" class="btn-primary" style="align-self:flex-start;">Book sparring om SaaS</a>
+    </div>
+  </div>
+
+  <!-- Legacy -->
+  <div class="losning-block">
+    <div class="losning-visual">
+      <div class="losning-icon-wrap">📈</div>
+      <div class="losning-visual-label">
+        <span class="big-num">03</span>
+        <h3>Legacy-modernisering</h3>
+      </div>
+    </div>
+    <div class="losning-content">
+      <p class="section-label">Modernisering</p>
+      <h2 class="losning-title">Fra Excel og ældre systemer<br>til <em>et rigtigt setup</em></h2>
+      <p class="losning-desc">
+        Mange virksomheder vokser ud af deres systemer uden at mærke det, og det koster mere end de tror. Dobbeltindtastning, personafhængighed og data der ikke stemmer — det er symptomer på et fundament der ikke holder.
+      </p>
+      <ul class="losning-list">
+        <li>Kortlægning og migration af Excel- og Access-løsninger</li>
+        <li>Moderne webbaserede systemer med brugerstyring</li>
+        <li>Integrationer til eksisterende software og datakilder</li>
+        <li>Automatisering af manuelle dataflows</li>
+        <li>Dokumentation og overdragelse der holder over tid</li>
+      </ul>
+      <a href="/kontakt.html" class="btn-primary" style="align-self:flex-start;">Book sparring om modernisering</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- HOW WE WORK -->
+<div class="process-section">
+  <p class="section-label">Sådan arbejder vi</p>
+  <h2 class="section-heading" style="margin-bottom:48px;">Fra første samtale<br>til færdigt system</h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="process-step-num">1</div>
+      <h3 class="process-step-title">Gratis sparring</h3>
+      <p class="process-step-desc">30 minutter hvor vi lytter til jeres situation og giver en ærlig vurdering. Ingen salgspres, ingen forpligtelse.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">2</div>
+      <h3 class="process-step-title">Afklaring og scope</h3>
+      <p class="process-step-desc">Vi kortlægger processer, identificerer det vigtigste problem og definerer et realistisk scope med tydelige prioriteter.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">3</div>
+      <h3 class="process-step-title">Bygning og feedback</h3>
+      <p class="process-step-desc">Iterativt forløb med løbende feedback. I ser fremgang løbende — ikke kun ved slutleveringen.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">4</div>
+      <h3 class="process-step-title">Overdragelse og drift</h3>
+      <p class="process-step-desc">Systemet dokumenteres og overdrages på en måde der gør jer selvhjulpne. Vi er tilgængelige for drift og videreudvikling.</p>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2 class="cta-heading">Klar til at tale om<br><em>jeres konkrete situation?</em></h2>
+  <p class="cta-sub">Book 30 minutters gratis sparring. Vi gennemgår jeres setup og fortæller hvad der giver mening — uden forpligtelse.</p>
+  <a href="/kontakt.html" class="btn-white">Book gratis sparring →</a>
+</div>
+
+<footer>
+  <span>© 2026 Metodik</span>
+  <div style="display:flex;gap:28px;">
+    <a href="/losninger/">Løsninger</a>
+    <a href="/artikler/">Artikler</a>
+    <a href="/om.html">Om</a>
+    <a href="/kontakt.html">Kontakt</a>
+  </div>
+</footer>
+
 </body>
 </html>
