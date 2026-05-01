@@ -4,156 +4,172 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kontakt — Metodik</title>
-<meta name="description" content="Book 30 minutters gratis sparring med Metodik. Ring, skriv eller udfyld formularen — og få en ærlig vurdering af jeres situation.">
+<meta name="description" content="Book 30 minutters gratis sparring med Metodik. Ring på +45 60 89 23 02 eller skriv til kontakt@metodik.dk.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 <style>
   .kontakt-hero {
-    background: var(--accent);
-    color: #fff;
-    padding: 140px 80px 80px;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: end;
+    padding-top: 80px;
   }
-  .kontakt-hero-headline {
+  .kontakt-left {
+    background: var(--accent);
+    color: #fff;
+    padding: 80px 72px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .kontakt-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 24px;
+  }
+  .kontakt-headline {
     font-family: var(--serif);
-    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    font-size: clamp(2.4rem, 3.5vw, 3.6rem);
     line-height: 1.08;
     letter-spacing: -0.02em;
+    margin-bottom: 24px;
   }
-  .kontakt-hero-headline em { font-style: italic; opacity: 0.6; }
-  .kontakt-hero-intro { color: rgba(255,255,255,0.65); font-size: 1.05rem; line-height: 1.8; }
-
-  .kontakt-body {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    gap: 80px;
-    padding: 80px 80px 100px;
-    align-items: start;
+  .kontakt-headline em { font-style: italic; opacity: 0.6; }
+  .kontakt-intro {
+    color: rgba(255,255,255,0.65);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    max-width: 440px;
+    margin-bottom: 56px;
   }
-
-  /* Form */
-  .kontakt-form-section {}
-  .kontakt-form-label {
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .contact-method:last-child { border-bottom: none; }
+  .contact-method:hover { background: rgba(255,255,255,0.07); }
+  .contact-method-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .contact-method-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 5px;
+  }
+  .contact-method-value {
+    font-family: var(--serif);
+    font-size: 1.3rem;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .contact-method-sub {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 3px;
+  }
+  .kontakt-right {
+    background: var(--paper);
+    padding: 80px 80px 80px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .kontakt-right-label {
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent-light);
-    margin-bottom: 20px;
-    display: block;
+    margin-bottom: 24px;
   }
-  .kontakt-form-heading {
+  .kontakt-right-heading {
     font-family: var(--serif);
     font-size: 1.9rem;
     letter-spacing: -0.02em;
-    margin-bottom: 12px;
-    line-height: 1.15;
+    line-height: 1.2;
+    margin-bottom: 20px;
   }
-  .kontakt-form-sub {
+  .kontakt-right-text {
     color: var(--muted);
     font-size: 1rem;
-    line-height: 1.75;
-    margin-bottom: 40px;
-    max-width: 460px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+    max-width: 420px;
   }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
-  .form-group label { font-size: 0.85rem; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
-  .form-group input,
-  .form-group textarea,
-  .form-group select {
-    background: #fff;
-    border: 1.5px solid var(--rule);
-    border-radius: 4px;
-    padding: 13px 16px;
-    font-family: var(--sans);
-    font-size: 0.95rem;
-    color: var(--ink);
-    transition: border-color 0.2s;
-    outline: none;
-    width: 100%;
-  }
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus { border-color: var(--accent-light); }
-  .form-group textarea { min-height: 130px; resize: vertical; }
-  .form-note { font-size: 0.8rem; color: var(--muted); margin-top: 12px; line-height: 1.6; }
-
-  /* Sidebar contact info */
-  .kontakt-sidebar {}
-  .contact-card {
+  .expect-box {
     border: 1px solid var(--rule);
     border-radius: 8px;
     overflow: hidden;
     background: #fff;
     margin-bottom: 24px;
   }
-  .contact-card-header {
-    background: var(--accent);
-    padding: 24px 28px;
-    color: #fff;
-  }
-  .contact-card-header-label {
-    font-size: 0.7rem;
+  .expect-box-header {
+    background: var(--ink);
+    padding: 18px 28px;
+    font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.5);
-    margin-bottom: 8px;
   }
-  .contact-card-header-name {
-    font-family: var(--serif);
-    font-size: 1.4rem;
-    font-weight: 400;
-  }
-  .contact-card-header-title {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.55);
-    margin-top: 4px;
-  }
-  .contact-info-item {
+  .expect-item {
     display: flex;
     gap: 16px;
-    align-items: flex-start;
-    padding: 20px 28px;
+    padding: 18px 28px;
     border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
   }
-  .contact-info-item:last-child { border-bottom: none; }
-  .contact-info-icon { font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
-  .contact-info-content {}
-  .contact-info-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
-  .contact-info-value { font-size: 0.95rem; color: var(--ink); }
-  .contact-info-value a { color: var(--accent-light); text-decoration: none; font-weight: 500; }
-  .contact-info-value a:hover { text-decoration: underline; }
-  .contact-info-sub { font-size: 0.82rem; color: var(--muted); margin-top: 3px; line-height: 1.5; }
-
-  .what-to-expect {
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    padding: 28px;
-    background: var(--paper);
+  .expect-item:last-child { border-bottom: none; }
+  .expect-check {
+    color: var(--accent-light);
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 2px;
   }
-  .what-to-expect-label {
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+  .expect-text {
+    font-size: 0.92rem;
+    color: #3a3a3a;
+    line-height: 1.55;
+  }
+  .cvr-line {
+    font-size: 0.82rem;
     color: var(--muted);
-    margin-bottom: 16px;
+    margin-top: 8px;
   }
-  .expect-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
-  .expect-list li { font-size: 0.9rem; color: #3a3a3a; padding-left: 18px; position: relative; line-height: 1.55; }
-  .expect-list li::before { content: "✓"; position: absolute; left: 0; color: var(--accent-light); font-weight: 700; font-size: 0.8rem; }
-
   @media (max-width: 900px) {
-    .kontakt-hero { grid-template-columns: 1fr; gap: 32px; padding: 100px 24px 48px; }
-    .kontakt-body { grid-template-columns: 1fr; padding: 48px 24px 64px; gap: 48px; }
-    .form-row { grid-template-columns: 1fr; }
+    .kontakt-hero { grid-template-columns: 1fr; min-height: auto; }
+    .kontakt-left { padding: 80px 24px 56px; }
+    .kontakt-right { padding: 56px 24px 80px; }
   }
 </style>
 </head>
@@ -171,101 +187,55 @@
 </nav>
 
 <div class="kontakt-hero">
-  <div>
-    <p class="section-label" style="color:rgba(255,255,255,0.45);margin-bottom:20px;">Kontakt</p>
-    <h1 class="kontakt-hero-headline">Book gratis<br><em>30 minutters sparring</em></h1>
-  </div>
-  <p class="kontakt-hero-intro">Har I en idé til et system, en AI-løsning eller en SaaS-platform — eller et eksisterende setup der ikke længere holder? Ring eller skriv, og vi tager en uforpligtende snak om jeres situation.</p>
-</div>
-
-<div class="kontakt-body">
-
-  <div class="kontakt-form-section">
-    <span class="kontakt-form-label">Send en besked</span>
-    <h2 class="kontakt-form-heading">Fortæl os om jeres situation</h2>
-    <p class="kontakt-form-sub">Jo mere konkret du er, jo mere konkret kan vi være tilbage. Men selv en løs idé er et fint udgangspunkt for en samtale.</p>
-
-    <form action="mailto:kontakt@metodik.dk" method="post" enctype="text/plain">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="navn">Navn</label>
-          <input type="text" id="navn" name="navn" placeholder="Dit navn" autocomplete="name">
+  <div class="kontakt-left">
+    <p class="kontakt-eyebrow">Kontakt</p>
+    <h1 class="kontakt-headline">Lad os tage<br><em>en snak</em></h1>
+    <p class="kontakt-intro">Ring eller skriv — så finder vi et tidspunkt til 30 minutters uforpligtende sparring om jeres situation.</p>
+    <div class="contact-methods">
+      <a href="tel:+4560892302" class="contact-method">
+        <div class="contact-method-icon">📞</div>
+        <div>
+          <p class="contact-method-label">Telefon</p>
+          <p class="contact-method-value">+45 60 89 23 02</p>
+          <p class="contact-method-sub">Hverdage 8–16 · SMS eller besked hvis ikke svar</p>
         </div>
-        <div class="form-group">
-          <label for="virksomhed">Virksomhed</label>
-          <input type="text" id="virksomhed" name="virksomhed" placeholder="Virksomhedens navn">
+      </a>
+      <a href="mailto:kontakt@metodik.dk" class="contact-method">
+        <div class="contact-method-icon">✉️</div>
+        <div>
+          <p class="contact-method-label">E-mail</p>
+          <p class="contact-method-value">kontakt@metodik.dk</p>
+          <p class="contact-method-sub">Svar inden for én arbejdsdag</p>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="din@email.dk" autocomplete="email">
-      </div>
-      <div class="form-group">
-        <label for="telefon">Telefon <span style="font-weight:400;color:var(--muted)">(valgfrit)</span></label>
-        <input type="tel" id="telefon" name="telefon" placeholder="+45 xx xx xx xx" autocomplete="tel">
-      </div>
-      <div class="form-group">
-        <label for="emne">Hvad handler det om?</label>
-        <select id="emne" name="emne">
-          <option value="" disabled selected>Vælg emne</option>
-          <option value="ai">AI-automatisering</option>
-          <option value="saas">SaaS-platform</option>
-          <option value="modernisering">Legacy-modernisering</option>
-          <option value="andet">Andet / ved ikke endnu</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label for="besked">Beskriv jeres situation</label>
-        <textarea id="besked" name="besked" placeholder="Hvad er udfordringen? Hvad har I i dag? Hvad ønsker I at opnå?"></textarea>
-      </div>
-      <button type="submit" class="btn-primary" style="width:100%;text-align:center;border:none;cursor:pointer;font-size:1rem;">Send besked</button>
-      <p class="form-note">Vi svarer typisk inden for én arbejdsdag. Dine oplysninger bruges udelukkende til at besvare din henvendelse og gemmes ikke i systemer uden for vores e-mail.</p>
-    </form>
+      </a>
+    </div>
   </div>
 
-  <aside class="kontakt-sidebar">
-    <div class="contact-card">
-      <div class="contact-card-header">
-        <p class="contact-card-header-label">Founder</p>
-        <p class="contact-card-header-name">Metodik</p>
-        <p class="contact-card-header-title">Ingeniør · Builder · Founder</p>
+  <div class="kontakt-right">
+    <p class="kontakt-right-label">Hvad sker der til sparringen?</p>
+    <h2 class="kontakt-right-heading">30 minutter der<br>faktisk giver noget</h2>
+    <p class="kontakt-right-text">Ingen salgspitch. Vi lytter til jeres situation, stiller de spørgsmål der er nødvendige — og giver en ærlig vurdering af hvad der giver mening for jer.</p>
+    <div class="expect-box">
+      <div class="expect-box-header">Hvad I kan forvente</div>
+      <div class="expect-item">
+        <span class="expect-check">✓</span>
+        <span class="expect-text">Vi lytter til jeres situation og stiller konkrete spørgsmål om processer og behov</span>
       </div>
-      <div class="contact-info-item">
-        <span class="contact-info-icon">📞</span>
-        <div class="contact-info-content">
-          <p class="contact-info-label">Telefon</p>
-          <p class="contact-info-value"><a href="tel:+4560892302">+45 60 89 23 02</a></p>
-          <p class="contact-info-sub">Hverdage 8–16. Læg en besked eller send SMS hvis ikke jeg svarer.</p>
-        </div>
+      <div class="expect-item">
+        <span class="expect-check">✓</span>
+        <span class="expect-text">I får en ærlig vurdering — inkl. hvis standardsoftware passer bedre end custom-udvikling</span>
       </div>
-      <div class="contact-info-item">
-        <span class="contact-info-icon">✉️</span>
-        <div class="contact-info-content">
-          <p class="contact-info-label">E-mail</p>
-          <p class="contact-info-value"><a href="mailto:kontakt@metodik.dk">kontakt@metodik.dk</a></p>
-          <p class="contact-info-sub">Svar inden for én arbejdsdag.</p>
-        </div>
+      <div class="expect-item">
+        <span class="expect-check">✓</span>
+        <span class="expect-text">Hvis det giver mening, skitserer vi hvad et projekt kunne indeholde og hvad det realistisk koster</span>
       </div>
-      <div class="contact-info-item">
-        <span class="contact-info-icon">🏢</span>
-        <div class="contact-info-content">
-          <p class="contact-info-label">CVR</p>
-          <p class="contact-info-value">21550094</p>
-        </div>
+      <div class="expect-item">
+        <span class="expect-check">✓</span>
+        <span class="expect-text">Ingen forpligtelse og ingen opfølgende salgskald efterfølgende</span>
       </div>
     </div>
-
-    <div class="what-to-expect">
-      <p class="what-to-expect-label">Hvad sker der til sparringen?</p>
-      <ul class="expect-list">
-        <li>Vi lytter til jeres situation og stiller konkrete spørgsmål</li>
-        <li>Vi giver en ærlig vurdering — inkl. hvis standardsoftware passer bedre</li>
-        <li>Hvis det giver mening, skitserer vi hvad et projekt kunne indeholde</li>
-        <li>Ingen forpligtelse, ingen opfølgende salgskald</li>
-      </ul>
-    </div>
-  </aside>
-
+    <p class="cvr-line">Metodik · CVR 21550094</p>
+  </div>
 </div>
 
 <footer>
