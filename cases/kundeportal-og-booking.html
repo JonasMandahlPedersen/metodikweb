@@ -1,77 +1,168 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kundeportal og booking | Metodik</title>
-  <meta name="description" content="Case om kundeportal og bookingplatform.">
-  <link rel="canonical" href="https://metodik.dk/cases/kundeportal-og-booking.html">
-  <meta property="og:title" content="Kundeportal og booking | Metodik">
-  <meta property="og:description" content="Case om kundeportal og bookingplatform.">
-  <meta property="og:url" content="https://metodik.dk/cases/kundeportal-og-booking.html">
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Metodik">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Kundeportal og booking | Metodik", "datePublished": "2026-03-14", "dateModified": "2026-03-14", "author": {"@type": "Organization", "name": "Metodik"}, "publisher": {"@type": "Organization", "name": "Metodik"}, "description": "Case om kundeportal og bookingplatform."}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kundeportal og booking — Metodik</title>
+<meta name="description" content="Case: Samling af kundeoplevelse, administration og booking-workflow i én platform. Fra spredte systemer til samlet overblik.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  .case-hero { padding: 140px 80px 0; background: var(--accent); color: #fff; }
+  .case-hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; padding-bottom: 80px; }
+  .case-eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 20px; }
+  .case-hero-title { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.1; letter-spacing: -0.02em; }
+  .case-hero-title em { font-style: italic; opacity: 0.6; }
+  .case-hero-summary { color: rgba(255,255,255,0.65); font-size: 1.05rem; line-height: 1.8; }
+  .case-body { max-width: 1100px; margin: 0 auto; padding: 80px 80px 100px; display: grid; grid-template-columns: 1fr 320px; gap: 80px; align-items: start; }
+  .case-prose h2 { font-family: var(--serif); font-size: 1.7rem; letter-spacing: -0.02em; margin: 52px 0 18px; color: var(--ink); }
+  .case-prose h2:first-child { margin-top: 0; }
+  .case-prose p { color: #3a3a3a; line-height: 1.85; margin-bottom: 22px; font-size: 1rem; }
+  .case-prose strong { color: var(--ink); }
+  .case-prose ul { list-style: none; padding: 0; margin-bottom: 24px; display: flex; flex-direction: column; gap: 8px; }
+  .case-prose ul li { font-size: 0.95rem; color: #3a3a3a; padding-left: 18px; position: relative; line-height: 1.6; }
+  .case-prose ul li::before { content: "—"; position: absolute; left: 0; color: var(--accent-light); font-weight: 600; }
+  .case-divider { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+  .case-sidebar { position: sticky; top: 100px; }
+  .case-fact-box { border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; background: #fff; margin-bottom: 24px; }
+  .case-fact-label { background: var(--accent); color: rgba(255,255,255,0.6); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 20px; }
+  .case-fact-item { padding: 18px 20px; border-bottom: 1px solid var(--rule); }
+  .case-fact-item:last-child { border-bottom: none; }
+  .case-fact-key { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+  .case-fact-value { font-size: 0.95rem; color: var(--ink); line-height: 1.45; }
+  .sidebar-cta { background: var(--accent); color: #fff; border-radius: 8px; padding: 28px; }
+  .sidebar-cta-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 12px; }
+  .sidebar-cta p { font-size: 0.92rem; color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 20px; }
+  .sidebar-cta a { display: block; background: #fff; color: var(--accent); text-align: center; padding: 12px; border-radius: 4px; font-size: 0.88rem; font-weight: 600; text-decoration: none; }
+  .result-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; background: var(--rule); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; margin: 40px 0; }
+  .result-card { background: var(--paper); padding: 32px 28px; }
+  .result-card-num { font-family: var(--serif); font-size: 2.4rem; color: var(--accent-light); font-style: italic; line-height: 1; margin-bottom: 10px; }
+  .result-card-label { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+  .result-card-label strong { color: var(--ink); display: block; margin-bottom: 3px; font-size: 0.95rem; }
+  @media (max-width: 900px) {
+    .case-hero { padding: 100px 24px 0; }
+    .case-hero-inner { grid-template-columns: 1fr; gap: 24px; padding-bottom: 48px; }
+    .case-body { grid-template-columns: 1fr; padding: 48px 24px 64px; gap: 48px; }
+    .case-sidebar { position: static; }
+    .result-row { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="/">
-        <div class="brand-mark"></div>
-        <div>
-          <h1>Metodik</h1>
-          <p>AI • SaaS • forretningssystemer</p>
-        </div>
-      </a>
-      <nav class="nav-links">
-        <a href="/losninger/">Løsninger</a>
-        <a href="/cases/">Cases</a>
-        <a href="/artikler/">Artikler</a>
-        <a href="/om.html">Om</a>
-        <a href="/kontakt.html" class="btn btn-secondary">Kontakt</a>
-      </nav>
-    </div>
-  </header>
 
-<section class="section light">
-  <div class="container article">
-    <div class="eyebrow">Case</div>
-    <h1>Kundeportal og bookingplatform</h1>
-    <p class="section-intro">Et projekt hvor brugeroplevelse, administration og overblik blev samlet i én platform. Siden her er visuelt løftet med lyse paneler og stærk læsbarhed.</p>
-    <div class="quote">Målet var at skabe et samlet system der reducerede manuelt arbejde og gav både kunder og medarbejdere bedre overblik.</div>
+<nav>
+  <a href="/" class="nav-logo">Metodik</a>
+  <ul class="nav-links">
+    <li><a href="/losninger/">Løsninger</a></li>
+    <li><a href="/cases/">Cases</a></li>
+    <li><a href="/artikler/">Artikler</a></li>
+    <li><a href="/om.html">Om</a></li>
+    <li><a href="/kontakt.html" class="nav-cta">Book sparring</a></li>
+  </ul>
+</nav>
+
+<div class="case-hero">
+  <div class="case-hero-inner">
+    <div>
+      <p class="case-eyebrow">Case · SaaS-udvikling</p>
+      <h1 class="case-hero-title">Kundeportal og<br><em>bookingplatform</em></h1>
+    </div>
+    <p class="case-hero-summary">Kundeoplevelse, administration og booking-workflow samlet i én platform — i stedet for spredt over mail, regneark og manuelle processer. Resultatet var færre fejl, mere tilfredse kunder og et team der brugte tid på det der skabte værdi.</p>
   </div>
-</section>
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="brand" style="margin-bottom:10px">
-          <div class="brand-mark"></div>
-          <div>
-            <h1>Metodik</h1>
-            <p>Bygget til større løsninger</p>
-          </div>
-        </div>
-        <p class="small">Metodik hjælper virksomheder med at bygge komplette AI- og SaaS-løsninger samt modernisere ældre arbejdsgange til moderne websystemer.</p>
+</div>
+
+<div class="case-body">
+  <article class="case-prose">
+
+    <h2>Udgangspunktet</h2>
+    <p>Virksomheden håndterede booking og kundekommunikation via e-mail og regneark. Det fungerede, da de var ti kunder. Med over hundrede aktive kunder og et voksende team begyndte det at skabe problemer: bookinger der gik tabt, kunder der ikke fik svar i tide, og medarbejdere der brugte uforholdsmæssigt meget tid på koordinering frem for det egentlige arbejde.</p>
+    <p>Ønsket var enkelt: ét sted hvor kunder kan se og administrere deres aftaler, og hvor teamet har fuldt overblik — uden at det krævede manuel opdatering af regneark.</p>
+
+    <hr class="case-divider">
+
+    <h2>Hvad der blev bygget</h2>
+    <p>En webbaseret platform med to sider: én for kunder og én for administratorer. Kunder kan logge ind, se kommende aftaler, booke nye tider og tilgå relevante dokumenter. Administratorer kan se hele kalenderen, oprette og redigere bookinger, sende påmindelser og trække rapporter.</p>
+    <p>Nøglefunktioner der kom med i første version:</p>
+    <ul>
+      <li>Selvbetjeningsbooking med realtids-tilgængelighed</li>
+      <li>Automatiske bekræftelser og påmindelser via e-mail og SMS</li>
+      <li>Kundehistorik og dokumenthåndtering</li>
+      <li>Administrationspanel med kalender- og listevisning</li>
+      <li>Integration til eksisterende regnskabssystem</li>
+    </ul>
+
+    <div class="result-row">
+      <div class="result-card">
+        <div class="result-card-num">80%</div>
+        <div class="result-card-label"><strong>Færre manuelle bookinger</strong>Kunder booker selv via portalen</div>
       </div>
-      <div>
-        <strong>Navigation</strong><br>
-        <a href="/">Forside</a><br>
-        <a href="/losninger/">Løsninger</a><br>
-        <a href="/cases/">Cases</a><br>
-        <a href="/artikler/">Artikler</a><br>
+      <div class="result-card">
+        <div class="result-card-num">0</div>
+        <div class="result-card-label"><strong>Tabte bookinger</strong>Efter implementering af systemet</div>
       </div>
-      <div>
-        <strong>Lead-magnet</strong>
-        <p class="small">Gratis 30 minutters sparring om AI, SaaS eller modernisering af jeres nuværende setup.</p>
-        <a href="/kontakt.html" class="btn btn-primary">Book sparring</a>
+      <div class="result-card">
+        <div class="result-card-num">~6t</div>
+        <div class="result-card-label"><strong>Sparet per uge</strong>Tid frigivet fra manuel koordinering</div>
       </div>
     </div>
-  </footer>
-  <script src="/assets/main.js"></script>
+
+    <hr class="case-divider">
+
+    <h2>Tilgang og forløb</h2>
+    <p>Vi startede med at kortlægge det eksisterende flow i detaljer — hvad sker der fra en kunde henvender sig til en booking er bekræftet? Kortlægningen afslørede en del trin som ikke var nødvendige, og et par vigtige trin som ingen havde tænkt på at inkludere i det nye system.</p>
+    <p>Første version blev bygget med fokus på det der skabte mest friktion: den manuelle bookingproces. Kundehistorik og rapportering kom i anden version, to måneder efter launch.</p>
+    <p>Platformen kører i dag i produktion og håndterer alle bookinger uden manuel indblanding fra teamet.</p>
+
+  </article>
+
+  <aside class="case-sidebar">
+    <div class="case-fact-box">
+      <div class="case-fact-label">Projektinfo</div>
+      <div class="case-fact-item">
+        <div class="case-fact-key">Type</div>
+        <div class="case-fact-value">Kundeportal og bookingsystem</div>
+      </div>
+      <div class="case-fact-item">
+        <div class="case-fact-key">Løsningsområde</div>
+        <div class="case-fact-value">SaaS-udvikling</div>
+      </div>
+      <div class="case-fact-item">
+        <div class="case-fact-key">Varighed</div>
+        <div class="case-fact-value">MVP over ca. 4 måneder</div>
+      </div>
+      <div class="case-fact-item">
+        <div class="case-fact-key">Integrationer</div>
+        <div class="case-fact-value">E-mail, SMS, regnskabssystem</div>
+      </div>
+      <div class="case-fact-item">
+        <div class="case-fact-key">Anonymiseret</div>
+        <div class="case-fact-value">Ja — af hensyn til kunden</div>
+      </div>
+    </div>
+    <div class="sidebar-cta">
+      <div class="sidebar-cta-label">Lignende projekt?</div>
+      <p>Fortæl os om jeres situation — vi giver en ærlig vurdering af hvad der giver mening.</p>
+      <a href="/kontakt.html">Book gratis sparring →</a>
+    </div>
+  </aside>
+</div>
+
+<div class="cta-section">
+  <h2 class="cta-heading">Ligner dette<br><em>jeres situation?</em></h2>
+  <p class="cta-sub">Book 30 minutters gratis sparring og fortæl os om jeres setup. Vi giver en konkret vurdering af hvad der giver mening.</p>
+  <a href="/kontakt.html" class="btn-white">Book gratis sparring →</a>
+</div>
+
+<footer>
+  <span>© 2026 Metodik · CVR 21550094</span>
+  <div style="display:flex;gap:28px;">
+    <a href="/losninger/">Løsninger</a>
+    <a href="/artikler/">Artikler</a>
+    <a href="/om.html">Om</a>
+    <a href="/kontakt.html">Kontakt</a>
+  </div>
+</footer>
 </body>
 </html>

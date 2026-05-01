@@ -1,85 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Legacy-modernisering | Metodik</title>
-  <meta name="description" content="Modernisering af Excel, Access og ældre løsninger til moderne websystemer.">
-  <link rel="canonical" href="https://metodik.dk/losninger/legacy-modernisering.html">
-  <meta property="og:title" content="Legacy-modernisering | Metodik">
-  <meta property="og:description" content="Modernisering af Excel, Access og ældre løsninger til moderne websystemer.">
-  <meta property="og:url" content="https://metodik.dk/losninger/legacy-modernisering.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Metodik">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/style.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Metodik", "url": "https://metodik.dk", "description": "Metodik udvikler AI, SaaS og webbaserede forretningssystemer for virksomheder.", "areaServed": "DK", "serviceType": ["AI automatisering", "SaaS udvikling", "Modernisering af legacy systemer"]}</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legacy-modernisering — Metodik</title>
+<meta name="description" content="Flyt fra Excel, Access og ældre systemer til et moderne, driftssikkert setup. Metodik kortlægger, migrerer og bygger løsninger der kan vokse med forretningen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+  .losning-hero {
+    background: var(--ink);
+    color: #fff;
+    padding: 140px 80px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  .losning-hero-headline { font-family: var(--serif); font-size: clamp(2.4rem, 4vw, 3.6rem); line-height: 1.08; letter-spacing: -0.02em; }
+  .losning-hero-headline em { font-style: italic; opacity: 0.55; }
+  .losning-hero-intro { color: rgba(255,255,255,0.65); font-size: 1.05rem; line-height: 1.8; margin-bottom: 28px; }
+
+  .symptoms-section { padding: 100px 80px; background: #fff; border-bottom: 1px solid var(--rule); }
+  .symptoms-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+  .symptoms-heading { font-family: var(--serif); font-size: 2rem; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 20px; }
+  .symptoms-heading em { font-style: italic; color: var(--accent-light); }
+  .symptoms-text { color: var(--muted); font-size: 1rem; line-height: 1.8; margin-bottom: 0; }
+  .symptoms-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .symptom-item { display: flex; gap: 20px; padding: 22px 28px; border-bottom: 1px solid var(--rule); align-items: flex-start; }
+  .symptom-item:last-child { border-bottom: none; }
+  .symptom-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-light); flex-shrink: 0; margin-top: 7px; }
+  .symptom-text { font-size: 0.95rem; color: #3a3a3a; line-height: 1.55; }
+  .symptom-text strong { color: var(--ink); display: block; margin-bottom: 2px; }
+
+  .what-section { padding: 100px 80px; }
+  .what-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--rule); border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .what-card { background: var(--paper); padding: 44px 36px; transition: background 0.2s; }
+  .what-card:hover { background: #fff; }
+  .what-icon { font-size: 1.6rem; margin-bottom: 20px; display: block; }
+  .what-title { font-family: var(--serif); font-size: 1.2rem; margin-bottom: 12px; }
+  .what-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+
+  .transformation-section { background: var(--accent); color: #fff; padding: 100px 80px; }
+  .transformation-heading { font-family: var(--serif); font-size: 2.2rem; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 12px; max-width: 560px; }
+  .transformation-heading em { font-style: italic; opacity: 0.6; }
+  .transformation-sub { color: rgba(255,255,255,0.6); font-size: 1rem; margin-bottom: 56px; max-width: 480px; line-height: 1.7; }
+  .before-after {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 0;
+    align-items: stretch;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .ba-col { background: rgba(255,255,255,0.06); padding: 36px 32px; }
+  .ba-col.after { background: rgba(255,255,255,0.12); }
+  .ba-col-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 24px; }
+  .ba-col.after .ba-col-label { color: rgba(255,255,255,0.6); }
+  .ba-items { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .ba-items li { font-size: 0.92rem; color: rgba(255,255,255,0.65); line-height: 1.5; padding-left: 16px; position: relative; }
+  .ba-col.after .ba-items li { color: rgba(255,255,255,0.85); }
+  .ba-items li::before { content: '—'; position: absolute; left: 0; color: rgba(255,255,255,0.25); }
+  .ba-col.after .ba-items li::before { color: rgba(255,255,255,0.4); }
+  .ba-arrow { display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.25); font-size: 1.4rem; }
+
+  .related-article { padding: 80px 80px; border-bottom: 1px solid var(--rule); background: var(--paper); }
+  .related-article-inner { display: flex; gap: 48px; align-items: center; border: 1px solid var(--rule); border-radius: 8px; padding: 40px; background: #fff; }
+  .related-article-text { flex: 1; }
+  .related-article-tag { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 10px; }
+  .related-article-title { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 10px; line-height: 1.25; }
+  .related-article-excerpt { color: var(--muted); font-size: 0.9rem; line-height: 1.65; }
+
+  @media (max-width: 900px) {
+    .losning-hero { grid-template-columns: 1fr; gap: 32px; padding: 100px 24px 48px; }
+    .symptoms-section { padding: 64px 24px; }
+    .symptoms-inner { grid-template-columns: 1fr; gap: 40px; }
+    .what-section { padding: 64px 24px; }
+    .what-grid { grid-template-columns: 1fr; }
+    .transformation-section { padding: 64px 24px; }
+    .before-after { grid-template-columns: 1fr; }
+    .ba-arrow { display: none; }
+    .related-article { padding: 48px 24px; }
+    .related-article-inner { flex-direction: column; gap: 24px; }
+  }
+</style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a class="brand" href="/">
-        <div class="brand-mark"></div>
-        <div>
-          <h1>Metodik</h1>
-          <p>AI • SaaS • forretningssystemer</p>
-        </div>
-      </a>
-      <nav class="nav-links">
-        <a href="/losninger/">Løsninger</a>
-        <a href="/cases/">Cases</a>
-        <a href="/artikler/">Artikler</a>
-        <a href="/om.html">Om</a>
-        <a href="/kontakt.html" class="btn btn-secondary">Kontakt</a>
-      </nav>
-    </div>
-  </header>
 
-<section class="section">
-  <div class="container article">
-    <div class="eyebrow">Legacy-modernisering</div>
-    <h1>Når jeres nuværende setup holder jer tilbage</h1>
-    <p class="section-intro">Designet her bruger en tydelig og rolig informationsstruktur, så beslutningstagere hurtigt kan spejle deres egen situation i indholdet.</p>
-    <div class="panel">
-      <h4>Tegn på at modernisering er relevant</h4>
-      <ul class="check">
-        <li>Mange versioner af samme data</li>
-        <li>Manuelle import- og eksportflows</li>
-        <li>Personafhængighed og lav sporbarhed</li>
-        <li>Begrænset integration til resten af virksomheden</li>
-      </ul>
+<nav>
+  <a href="/" class="nav-logo">Metodik</a>
+  <ul class="nav-links">
+    <li><a href="/losninger/">Løsninger</a></li>
+    <li><a href="/cases/">Cases</a></li>
+    <li><a href="/artikler/">Artikler</a></li>
+    <li><a href="/om.html">Om</a></li>
+    <li><a href="/kontakt.html" class="nav-cta">Book sparring</a></li>
+  </ul>
+</nav>
+
+<div class="losning-hero">
+  <div>
+    <p class="section-label" style="color:rgba(255,255,255,0.45);margin-bottom:20px;">Legacy-modernisering</p>
+    <h1 class="losning-hero-headline">Når jeres nuværende setup<br><em>holder jer tilbage</em></h1>
+  </div>
+  <div>
+    <p class="losning-hero-intro">De fleste virksomheder vokser ud af deres systemer uden at mærke det. Symptomerne er kendte: dobbeltindtastning, personafhængighed og data der ikke stemmer. Vi hjælper med at sætte en stopper for det.</p>
+    <a href="/kontakt.html" class="btn-white">Book gratis sparring</a>
+  </div>
+</div>
+
+<div class="symptoms-section">
+  <div class="symptoms-inner">
+    <div>
+      <p class="section-label">Kender I det her?</p>
+      <h2 class="symptoms-heading">Tegn på at<br><em>modernisering er relevant</em></h2>
+      <p class="symptoms-text">Disse symptomer opstår ikke fordi I har gjort noget forkert. De opstår fordi forretningen er vokset og systemerne ikke er fulgt med. Det er et godt problem at have — og et løseligt et.</p>
+    </div>
+    <ul class="symptoms-list">
+      <li class="symptom-item">
+        <span class="symptom-dot"></span>
+        <span class="symptom-text"><strong>Mange versioner af samme data</strong>Filer der hedder _FINAL_v3 og ingen der ved hvilken der er den rigtige.</span>
+      </li>
+      <li class="symptom-item">
+        <span class="symptom-dot"></span>
+        <span class="symptom-text"><strong>Personafhængighed</strong>Kun én person forstår systemet fuldt ud. Sygdom og feriedage er et problem.</span>
+      </li>
+      <li class="symptom-item">
+        <span class="symptom-dot"></span>
+        <span class="symptom-text"><strong>Manuelle dataoverførsler</strong>Data kopieres manuelt mellem systemer. Kedeligt, langsomt og fejlbehæftet.</span>
+      </li>
+      <li class="symptom-item">
+        <span class="symptom-dot"></span>
+        <span class="symptom-text"><strong>Ingen sporbarhed</strong>Hvem ændrede hvad og hvornår? Det er umuligt at se — og det er et compliance-problem.</span>
+      </li>
+      <li class="symptom-item">
+        <span class="symptom-dot"></span>
+        <span class="symptom-text"><strong>I har holdt op med at stole på tallene</strong>Når man siger "tallene er cirka rigtige" i ledelsesmødet, er systemet ikke et aktiv længere.</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<section class="what-section">
+  <p class="section-label">Hvad vi gør</p>
+  <h2 class="section-heading" style="margin-bottom:48px;">Fra kortlægning<br>til nyt system</h2>
+  <div class="what-grid">
+    <div class="what-card">
+      <span class="what-icon">🗺️</span>
+      <h3 class="what-title">Kortlægning og analyse</h3>
+      <p class="what-desc">Vi starter med at forstå hvad I faktisk bruger, hvad der er historik I vil beholde, og hvad der bare er gammelt rod. Det er oftest en overraskelse hvad der reelt er i brug.</p>
+    </div>
+    <div class="what-card">
+      <span class="what-icon">🔧</span>
+      <h3 class="what-title">Migration og opbygning</h3>
+      <p class="what-desc">Data migreres og det nye system bygges — typisk med en overgangsperiode hvor begge systemer kører parallelt, så I ikke mister noget undervejs.</p>
+    </div>
+    <div class="what-card">
+      <span class="what-icon">📋</span>
+      <h3 class="what-title">Dokumentation og overdragelse</h3>
+      <p class="what-desc">Det nye system dokumenteres ordentligt og overdrages på en måde der gør jer selvhjulpne. Vi bygger ikke systemer der kræver at vi er i nærheden for at fungere.</p>
     </div>
   </div>
 </section>
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="brand" style="margin-bottom:10px">
-          <div class="brand-mark"></div>
-          <div>
-            <h1>Metodik</h1>
-            <p>Bygget til større løsninger</p>
-          </div>
-        </div>
-        <p class="small">Metodik hjælper virksomheder med at bygge komplette AI- og SaaS-løsninger samt modernisere ældre arbejdsgange til moderne websystemer.</p>
-      </div>
-      <div>
-        <strong>Navigation</strong><br>
-        <a href="/">Forside</a><br>
-        <a href="/losninger/">Løsninger</a><br>
-        <a href="/cases/">Cases</a><br>
-        <a href="/artikler/">Artikler</a><br>
-      </div>
-      <div>
-        <strong>Lead-magnet</strong>
-        <p class="small">Gratis 30 minutters sparring om AI, SaaS eller modernisering af jeres nuværende setup.</p>
-        <a href="/kontakt.html" class="btn btn-primary">Book sparring</a>
-      </div>
+
+<div class="transformation-section">
+  <p class="section-label" style="color:rgba(255,255,255,0.45);margin-bottom:16px;">Transformation</p>
+  <h2 class="transformation-heading">Fra sårbart<br><em>til skalerbart</em></h2>
+  <p class="transformation-sub">Sådan ser forandringen typisk ud — fra det nuværende setup til et system der holder over tid.</p>
+  <div class="before-after">
+    <div class="ba-col">
+      <p class="ba-col-label">Før</p>
+      <ul class="ba-items">
+        <li>Spredte regneark og filer</li>
+        <li>Manuelle copy-paste workflows</li>
+        <li>Én person der forstår det hele</li>
+        <li>Ingen sporbarhed eller historik</li>
+        <li>Data der ikke stemmer overens</li>
+        <li>Rapportering tager dage</li>
+      </ul>
     </div>
-  </footer>
-  <script src="/assets/main.js"></script>
+    <div class="ba-arrow">→</div>
+    <div class="ba-col after">
+      <p class="ba-col-label">Efter</p>
+      <ul class="ba-items">
+        <li>Én central datakilde</li>
+        <li>Automatiserede dataflows</li>
+        <li>Hele teamet kan bruge systemet</li>
+        <li>Fuld sporbarhed og audit trail</li>
+        <li>Data der stemmer — altid</li>
+        <li>Rapportering tager minutter</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="related-article">
+  <div class="related-article-inner">
+    <div class="related-article-text">
+      <p class="related-article-tag">Relateret artikel</p>
+      <h3 class="related-article-title">7 tegn på at Excel er blevet for lille</h3>
+      <p class="related-article-excerpt">Syv konkrete tegn på at jeres regneark er ved at koste mere end det sparer — og hvad der typisk giver mening at gøre ved det.</p>
+    </div>
+    <a href="/artikler/7-tegn-paa-at-excel-er-blevet-for-lille.html" class="btn-primary" style="white-space:nowrap;flex-shrink:0;">Læs artiklen</a>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2 class="cta-heading">Kender I jer selv<br><em>i nogle af symptomerne?</em></h2>
+  <p class="cta-sub">Book 30 minutters gratis sparring. Vi kigger på jeres nuværende setup og giver en ærlig vurdering af hvad der giver mening som næste skridt.</p>
+  <a href="/kontakt.html" class="btn-white">Book gratis sparring →</a>
+</div>
+
+<footer>
+  <span>© 2026 Metodik · CVR 21550094</span>
+  <div style="display:flex;gap:28px;">
+    <a href="/losninger/">Løsninger</a>
+    <a href="/artikler/">Artikler</a>
+    <a href="/om.html">Om</a>
+    <a href="/kontakt.html">Kontakt</a>
+  </div>
+</footer>
+
 </body>
 </html>
