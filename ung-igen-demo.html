@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ung-Igen — Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =========================================================================
+   UNG-IGEN — DEMO / PROOF OF CONCEPT
+   Statisk, selvstændig HTML-fil. Ingen server, ingen database.
+   Al "navigation" og alle formularer er simuleret med JavaScript,
+   så filen kan åbnes direkte i en browser (dobbeltklik / file://).
+   ========================================================================= */
+:root {
+  --sand:        #FBF3E7;
+  --sand-deep:   #F3E7D4;
+  --ink:         #17223E;
+  --ink-soft:    #3C4A6B;
+  --sunrise-1:   #F6A54B;
+  --sunrise-2:   #EF6F5B;
+  --teal:        #1E8A8C;
+  --teal-deep:   #0F4F52;
+  --cream-card:  #FFFEFB;
+  --line:        rgba(23, 34, 62, 0.12);
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Karla', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --radius-lg: 26px; --radius-md: 16px; --radius-sm: 10px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; background:var(--sand); color:var(--ink); font-family:var(--font-body); font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+h1,h2,h3,h4,.display { font-family:var(--font-display); color:var(--ink); font-weight:600; letter-spacing:-0.01em; line-height:1.12; margin:0 0 .5em; }
+h1 { font-size:clamp(2.2rem,4.2vw,3.4rem); font-weight:500; }
+h2 { font-size:clamp(1.6rem,2.6vw,2.2rem); }
+h3 { font-size:1.25rem; }
+p { margin:0 0 1em; color:var(--ink-soft); }
+a { color:var(--teal-deep); text-decoration:none; cursor:pointer; }
+a:hover { color:var(--sunrise-2); }
+.eyebrow { text-transform:uppercase; letter-spacing:.14em; font-size:.74rem; font-weight:700; color:var(--teal); display:inline-block; margin-bottom:.6em; }
+.container-narrow { max-width:1120px; margin:0 auto; padding:0 24px; }
+.section { padding:64px 0; }
+.section--tight { padding:36px 0; }
+.sunrise-divider { height:80px; width:100%; overflow:hidden; margin-top:-1px; }
+.sunrise-divider svg { width:100%; height:100%; display:block; }
+.site-header { position:sticky; top:0; z-index:40; background:rgba(251,243,231,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
+.nav-wrap { max-width:1180px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+.brand { display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:1.3rem; font-weight:600; color:var(--ink); background:none; border:none; padding:0; cursor:pointer; }
+.brand .sun-mark { width:28px; height:28px; border-radius:50%; background:conic-gradient(from -40deg, var(--sunrise-1), var(--sunrise-2), var(--teal), var(--sunrise-1)); flex-shrink:0; }
+.nav-links { display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
+.nav-links button.navlink { background:none; border:none; font-family:var(--font-body); font-weight:600; font-size:.92rem; color:var(--ink); cursor:pointer; padding:4px 0; }
+.nav-links button.navlink:hover, .nav-links button.navlink.active { color:var(--sunrise-2); }
+.nav-actions { display:flex; align-items:center; gap:10px; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; font-family:var(--font-body); font-weight:700; font-size:.94rem; padding:12px 24px; border-radius:999px; border:1px solid transparent; cursor:pointer; transition:transform .15s ease, box-shadow .15s ease; text-decoration:none; }
+.btn:hover { transform:translateY(-1px); }
+.btn-primary { background:linear-gradient(100deg,var(--sunrise-1),var(--sunrise-2)); color:#fff; box-shadow:0 8px 18px -8px rgba(239,111,91,.55); }
+.btn-primary:hover { color:#fff; }
+.btn-outline { background:transparent; border-color:var(--ink); color:var(--ink); }
+.btn-outline:hover { border-color:var(--sunrise-2); color:var(--sunrise-2); }
+.btn-teal { background:var(--teal); color:#fff; }
+.btn-teal:hover { background:var(--teal-deep); color:#fff; }
+.btn-sm { padding:8px 16px; font-size:.85rem; }
+.btn-block { width:100%; }
+.hero { position:relative; padding:80px 0 36px; overflow:hidden; }
+.hero-rays { position:absolute; right:-12%; top:-30%; width:560px; height:560px; background:conic-gradient(from 200deg, transparent 0deg, var(--sunrise-1) 12deg, transparent 26deg, transparent 60deg, var(--sunrise-2) 74deg, transparent 88deg, transparent 140deg, var(--teal) 154deg, transparent 168deg, transparent 220deg, var(--sunrise-1) 234deg, transparent 248deg, transparent 320deg, var(--sunrise-2) 334deg, transparent 348deg); opacity:.5; border-radius:50%; pointer-events:none; }
+.hero-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:44px; align-items:center; }
+@media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} .hero-rays{display:none;} }
+.hero-tagline { font-size:1.15rem; color:var(--ink-soft); max-width:46ch; }
+.hero-cta-row { display:flex; gap:14px; margin-top:26px; flex-wrap:wrap; }
+.hero-card { background:var(--cream-card); border-radius:var(--radius-lg); padding:32px; box-shadow:0 30px 60px -30px rgba(23,34,62,.25); border:1px solid var(--line); }
+.hero-card .price { font-family:var(--font-display); font-size:2.4rem; color:var(--ink); }
+.hero-card .price small { font-family:var(--font-body); font-size:1rem; color:var(--ink-soft); font-weight:600; }
+.card { background:var(--cream-card); border:1px solid var(--line); border-radius:var(--radius-md); padding:24px; height:100%; transition:transform .18s ease, box-shadow .18s ease; }
+.card:hover { transform:translateY(-3px); box-shadow:0 20px 34px -22px rgba(23,34,62,.28); }
+.grid { display:grid; gap:20px; }
+.grid-3 { grid-template-columns:repeat(3,1fr); }
+.grid-2 { grid-template-columns:repeat(2,1fr); }
+@media (max-width:900px){ .grid-3,.grid-2{grid-template-columns:1fr;} }
+.pillar-icon { width:44px; height:44px; border-radius:14px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,var(--sunrise-1),var(--sunrise-2)); color:#fff; font-size:1.25rem; margin-bottom:12px; }
+.pillar-icon.teal { background:linear-gradient(135deg,var(--teal),var(--teal-deep)); }
+.tag { display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.04em; padding:5px 12px; border-radius:999px; background:var(--sand-deep); color:var(--teal-deep); margin-right:6px; margin-bottom:6px; }
+.section-teal { background:linear-gradient(160deg,var(--teal-deep),#0A3436); color:#fff; border-radius:var(--radius-lg); padding:52px; }
+.section-teal h2,.section-teal p { color:#fff; }
+.section-teal p { color:rgba(255,255,255,.8); }
+.form-field { margin-bottom:16px; }
+.form-field label { display:block; font-weight:700; font-size:.9rem; margin-bottom:6px; color:var(--ink); }
+.form-control { width:100%; padding:12px 16px; border-radius:var(--radius-sm); border:1.5px solid var(--line); background:#fff; font-family:var(--font-body); font-size:1rem; }
+.form-control:focus { outline:none; border-color:var(--teal); box-shadow:0 0 0 3px rgba(30,138,140,.15); }
+.badge-event-type { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:4px 10px; border-radius:999px; color:#fff; }
+.badge-ungigen { background:var(--sunrise-2); }
+.badge-partner { background:var(--teal); }
+.badge-medlem { background:var(--ink-soft); }
+.filter-bar { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px; }
+.filter-bar select { min-width:190px; }
+.avatar-circle { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,var(--sunrise-1),var(--teal)); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0; }
+.divider-line { border:none; border-top:1px solid var(--line); margin:26px 0; }
+.site-footer { background:var(--ink); color:rgba(255,255,255,.75); padding:52px 0 28px; margin-top:56px; }
+.site-footer h4 { color:#fff; font-size:.9rem; text-transform:uppercase; letter-spacing:.08em; }
+.site-footer a { color:rgba(255,255,255,.75); }
+.site-footer a:hover { color:var(--sunrise-1); }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:30px; }
+@media (max-width:800px){ .footer-grid{grid-template-columns:1fr 1fr;} }
+.view { display:none; }
+.view.active { display:block; }
+.demo-banner { background:var(--ink); color:#fff; text-align:center; font-size:.82rem; padding:8px 16px; }
+.demo-banner strong { color:var(--sunrise-1); }
+.notice { background:var(--sand-deep); border:1px dashed var(--teal); border-radius:var(--radius-sm); padding:14px 18px; font-size:.9rem; color:var(--teal-deep); margin-bottom:22px; }
+</style>
+</head>
+<body>
+
+<div class="demo-banner">📍 <strong>Demo-version</strong> — statisk proof-of-concept uden database eller server. Al data er fiktiv, og formularer gemmer intet.</div>
+
+<header class="site-header">
+  <div class="nav-wrap">
+    <button class="brand" onclick="showView('home')"><span class="sun-mark"></span> Ung-Igen</button>
+    <nav class="nav-links">
+      <button class="navlink" data-view="community" onclick="showView('community')">Mød</button>
+      <button class="navlink" data-view="events" onclick="showView('events')">Oplev</button>
+      <button class="navlink" data-view="offers" onclick="showView('offers')">Få mere</button>
+      <button class="navlink" data-view="articles" onclick="showView('articles')">Bliv inspireret</button>
+      <button class="navlink" data-view="membership" onclick="showView('membership')">Medlemskab</button>
+      <button class="navlink" data-view="giftcard" onclick="showView('giftcard')">Gavekort</button>
+    </nav>
+    <div class="nav-actions" id="navActions">
+      <button class="btn btn-outline btn-sm" onclick="showView('login')">Log ind</button>
+      <button class="btn btn-primary btn-sm" onclick="showView('membership')">Bliv medlem</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<div class="view active" id="view-home">
+  <section class="hero">
+    <div class="hero-rays"></div>
+    <div class="container-narrow hero-grid">
+      <div>
+        <span class="eyebrow">Livet er ikke slut, fordi man bliver 50, 60 eller 70</span>
+        <h1>Man bliver ældre.<br>Man behøver ikke blive gammel.</h1>
+        <p class="hero-tagline">Ung-Igen er det danske medlemsfællesskab for voksne 50+, der stadig har lyst til at opleve, møde mennesker og få mere ud af livet.</p>
+        <div class="hero-cta-row">
+          <button class="btn btn-primary" onclick="showView('membership')">Bliv medlem</button>
+          <button class="btn btn-outline" onclick="showView('community')">Se fællesskabet</button>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="eyebrow">Medlemskab</span>
+        <div class="price">69 kr. <small>/ md.</small></div>
+        <p style="margin-top:6px;">eller ca. 599 kr. pr. år</p>
+        <hr class="divider-line" />
+        <p style="font-size:.95rem;">✓ Adgang til grupper og lokalt fællesskab<br>✓ Arrangementer hver måned<br>✓ Medlemsrabatter hos partnere<br>✓ Ugentlig inspiration</p>
+        <button class="btn btn-teal btn-block" onclick="showView('membership')">Se priser</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="sunrise-divider"><svg viewBox="0 0 1200 80" preserveAspectRatio="none"><path d="M0,80 C300,10 900,10 1200,80 L1200,0 L0,0 Z" fill="var(--sand-deep)"></path></svg></div>
+
+  <section class="section" style="background:var(--sand-deep);">
+    <div class="container-narrow">
+      <span class="eyebrow">Hvad tilbyder Ung-Igen?</span>
+      <h2>Fire søjler, ét fællesskab</h2>
+      <div class="grid grid-2" style="margin-top:30px;">
+        <div class="card"><div class="pillar-icon">◐</div><h3>Mød</h3><p>Diskutér interesser, find mennesker i dit lokalområde, opret grupper og skab nye relationer.</p><a onclick="showView('community')">Udforsk grupper →</a></div>
+        <div class="card"><div class="pillar-icon teal">✺</div><h3>Oplev</h3><p>Arrangementer og aktiviteter — fra gåture og golf til vinsmagning og koncerter.</p><a onclick="showView('events')">Se kommende oplevelser →</a></div>
+        <div class="card"><div class="pillar-icon">%</div><h3>Få mere</h3><p>Eksklusive medlemsrabatter hos restauranter, hoteller, rejser, kultur og sport.</p><a onclick="showView('offers')">Se rabatter →</a></div>
+        <div class="card"><div class="pillar-icon teal">✎</div><h3>Bliv inspireret</h3><p>Artikler om rejser, mad, økonomi, sundhed, relationer, fritid og kultur.</p><a onclick="showView('articles')">Læs artikler →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-narrow">
+      <div class="section-teal">
+        <span class="eyebrow" style="color:var(--sunrise-1);">Ikke en seniorforening</span>
+        <h2>Det handler om energi, frihed og livsglæde — ikke om alderdom</h2>
+        <p style="max-width:60ch;">"Jeg har stadig masser, jeg vil opleve." Ung-Igen er ikke en datingside, ikke en pensionistforening og ikke bare et forum — men stedet hvor du får lyst til at møde mere, opleve mere og leve mere.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container-narrow">
+      <div class="grid grid-2" style="align-items:center;background:var(--cream-card);border:1px solid var(--line);border-radius:var(--radius-lg);padding:42px;">
+        <div>
+          <span class="eyebrow">Julegaven, de faktisk bruger</span>
+          <h2>Giv Ung-Igen i gave</h2>
+          <p>De har allerede alt. Giv dem noget at glæde sig til: et år med oplevelser, fællesskab og nye muligheder.</p>
+          <button class="btn btn-primary" onclick="showView('giftcard')">Køb gavekort</button>
+        </div>
+        <div style="text-align:center;"><div style="font-size:4.5rem;">🎁</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ COMMUNITY (MØD) ============ -->
+<div class="view" id="view-community">
+  <section class="section--tight">
+    <div class="container-narrow">
+      <span class="eyebrow">Mød</span>
+      <h1>Find dit fællesskab</h1>
+      <p style="max-width:60ch;">Diskutér interesser, find mennesker i dit lokalområde, og opret eller bliv en del af en gruppe.</p>
+      <div style="margin:14px 0 24px;"><button class="btn btn-primary btn-sm" onclick="alert('Demo: her ville du få en formular til at oprette en ny gruppe.')">Opret ny gruppe</button></div>
+
+      <form class="filter-bar" onsubmit="return false;">
+        <select class="form-control"><option>Alle lokalområder</option><option>Storkøbenhavn</option><option>Aarhus</option><option>Odense</option><option>Aalborg</option></select>
+        <select class="form-control"><option>Alle interesser</option><option>Rejser</option><option>Golf</option><option>Vin & Gastronomi</option><option>Vandreture</option></select>
+      </form>
+
+      <div class="grid grid-3">
+        <div class="card"><span class="tag">Vandreture</span><span class="tag">Storkøbenhavn</span><h3 style="margin-top:12px;">Gåklub Nordsjælland</h3><p>For os der elsker en god gåtur i skoven — uanset vejret.</p><p style="font-size:.85rem;color:var(--ink-soft);">42 medlemmer</p><a onclick="showView('group-detail')">Se gruppen →</a></div>
+        <div class="card"><span class="tag">Vin & Gastronomi</span><span class="tag">Aarhus</span><h3 style="margin-top:12px;">Vinklubben Østjylland</h3><p>Månedlige vinsmagninger og gode snakke om gastronomi.</p><p style="font-size:.85rem;color:var(--ink-soft);">27 medlemmer</p><a onclick="showView('group-detail')">Se gruppen →</a></div>
+        <div class="card"><span class="tag">Golf</span><span class="tag">Odense</span><h3 style="margin-top:12px;">Golfvenner Fyn</h3><p>Vi spiller sammen hver anden søndag — alle niveauer velkomne.</p><p style="font-size:.85rem;color:var(--ink-soft);">18 medlemmer</p><a onclick="showView('group-detail')">Se gruppen →</a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ GROUP DETAIL ============ -->
+<div class="view" id="view-group-detail">
+  <section class="section--tight">
+    <div class="container-narrow" style="max-width:820px;">
+      <a onclick="showView('community')">← Tilbage til Mød</a>
+      <span class="tag" style="margin-top:16px;">Vandreture</span><span class="tag">Storkøbenhavn</span>
+      <h1 style="margin-top:12px;">Gåklub Nordsjælland</h1>
+      <p>For os der elsker en god gåtur i skoven — uanset vejret. Vi mødes hver lørdag formiddag forskellige steder i Nordsjælland.</p>
+      <p style="font-size:.9rem;color:var(--ink-soft);">42 medlemmer · oprettet af Birthe M.</p>
+      <button class="btn btn-primary" onclick="alert('Demo: du er nu markeret som medlem af gruppen.')">Bliv medlem af gruppen</button>
+      <hr class="divider-line" />
+      <h2>Opslag</h2>
+      <form onsubmit="event.preventDefault(); alert('Demo: dit opslag ville nu blive vist i listen herunder.');" style="margin-bottom:24px;">
+        <div class="form-field"><textarea class="form-control" rows="3" placeholder="Del noget med gruppen..."></textarea></div>
+        <button type="submit" class="btn btn-teal btn-sm">Slå op</button>
+      </form>
+      <div class="card" style="margin-bottom:14px;display:flex;gap:14px;"><div class="avatar-circle">B</div><div><strong>Birthe M.</strong><span style="color:var(--ink-soft);font-size:.85rem;"> · 3. aug. 2026</span><p style="margin-top:6px;">Husk vandtætte sko til lørdag — vi går gennem mosen ved Esrum Sø!</p></div></div>
+      <div class="card" style="display:flex;gap:14px;"><div class="avatar-circle">J</div><div><strong>Jørgen K.</strong><span style="color:var(--ink-soft);font-size:.85rem;"> · 1. aug. 2026</span><p style="margin-top:6px;">Tak for en dejlig tur i sidste uge — det var lige tempoet for mig.</p></div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ EVENTS (OPLEV) ============ -->
+<div class="view" id="view-events">
+  <section class="section--tight">
+    <div class="container-narrow">
+      <span class="eyebrow">Oplev</span>
+      <h1>Kommende arrangementer</h1>
+      <p style="max-width:60ch;">Fra gåture, golf og padel til vinsmagning, restaurantbesøg, koncerter, foredrag og rejser.</p>
+      <form class="filter-bar" onsubmit="return false;">
+        <select class="form-control"><option>Alle lokalområder</option><option>Storkøbenhavn</option><option>Aarhus</option></select>
+        <select class="form-control"><option>Alle typer</option><option>Ung-Igen</option><option>Partner</option><option>Medlemsarrangeret</option></select>
+      </form>
+      <div class="grid grid-3">
+        <div class="card"><span class="badge-event-type badge-ungigen">UngIgen</span><h3 style="margin-top:12px;">Gåtur & kaffe i Dyrehaven</h3><p>Lørdag d. 22. august, 10:00</p><p style="font-size:.9rem;color:var(--ink-soft);">Dyrehaven, Klampenborg · Storkøbenhavn</p><p style="font-weight:700;">Gratis for medlemmer</p><a onclick="showView('event-detail')">Se detaljer →</a></div>
+        <div class="card"><span class="badge-event-type badge-partner">Partner</span><h3 style="margin-top:12px;">Vinsmagning: Toscana</h3><p>Lørdag d. 29. august, 18:30</p><p style="font-size:.9rem;color:var(--ink-soft);">Vinhuset, Frederiksberg · Storkøbenhavn</p><p style="font-weight:700;">195 kr.</p><a onclick="showView('event-detail')">Se detaljer →</a></div>
+        <div class="card"><span class="badge-event-type badge-medlem">Medlem</span><h3 style="margin-top:12px;">Padel for begyndere</h3><p>Søndag d. 30. august, 14:00</p><p style="font-size:.9rem;color:var(--ink-soft);">Padel Center Aarhus · Aarhus</p><p style="font-weight:700;">75 kr.</p><a onclick="showView('event-detail')">Se detaljer →</a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ EVENT DETAIL ============ -->
+<div class="view" id="view-event-detail">
+  <section class="section--tight">
+    <div class="container-narrow" style="max-width:760px;">
+      <a onclick="showView('events')">← Tilbage til Oplev</a>
+      <span class="badge-event-type badge-ungigen" style="margin-top:16px;display:inline-block;">UngIgen</span>
+      <h1 style="margin-top:12px;">Gåtur & kaffe i Dyrehaven</h1>
+      <p style="font-size:1.05rem;">Lørdag d. 22. august 2026, 10:00 – 12:00</p>
+      <p style="color:var(--ink-soft);">Dyrehaven, Klampenborg · Storkøbenhavn</p>
+      <div class="card" style="margin:22px 0;">
+        <p>Rolig gåtur gennem Dyrehaven efterfulgt af kaffe og kage på Peter Lieps Hus. Vi går i et roligt tempo, så alle kan være med.</p>
+        <hr class="divider-line" />
+        <p><strong>Pris:</strong> Gratis for medlemmer</p>
+        <p><strong>Ledige pladser:</strong> 14</p>
+        <button class="btn btn-primary" onclick="alert('Demo: du er nu tilmeldt arrangementet.')">Tilmeld dig</button>
+      </div>
+      <h3>Tilmeldte medlemmer</h3>
+      <p>11 tilmeldt</p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ OFFERS (FÅ MERE) ============ -->
+<div class="view" id="view-offers">
+  <section class="section--tight">
+    <div class="container-narrow">
+      <span class="eyebrow">Få mere</span>
+      <h1>Medlemsrabatter</h1>
+      <p style="max-width:60ch;">Eksklusive fordele hos restauranter, hoteller, rejser, kultur og sport. Målet er, at et aktivt medlem hurtigt kan spare medlemsprisen hjem.</p>
+      <form class="filter-bar" onsubmit="return false;">
+        <select class="form-control"><option>Alle kategorier</option><option>Restaurant</option><option>Sport</option><option>Rejser</option></select>
+      </form>
+      <div class="grid grid-3">
+        <div class="card"><span class="tag">Restaurant</span><h3 style="margin-top:12px;">20% på middagen</h3><p style="color:var(--ink-soft);font-size:.9rem;">hos Restaurant Kysten</p><p>Gælder alle hverdage før kl. 18.</p><p style="font-weight:700;color:var(--teal-deep);">20% rabat</p></div>
+        <div class="card"><span class="tag">Sport</span><h3 style="margin-top:12px;">Medlemspris på greenfee</h3><p style="color:var(--ink-soft);font-size:.9rem;">hos Golfklubben Sølyst</p><p>Book online med medlemskode.</p><p style="font-weight:700;color:var(--teal-deep);">15% rabat</p></div>
+        <div class="card"><span class="tag">Rejser</span><h3 style="margin-top:12px;">Rejsegavekort</h3><p style="color:var(--ink-soft);font-size:.9rem;">hos Bravo Tours</p><p>Ekstra rabat på udvalgte rundrejser.</p><p style="font-weight:700;color:var(--teal-deep);">500 kr. rabat</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ARTICLES (BLIV INSPIRERET) ============ -->
+<div class="view" id="view-articles">
+  <section class="section--tight">
+    <div class="container-narrow">
+      <span class="eyebrow">Bliv inspireret</span>
+      <h1>Artikler om livet efter 50</h1>
+      <p style="max-width:60ch;">Rejser, mad, økonomi, sundhed, relationer, fritid og kultur.</p>
+      <form class="filter-bar" onsubmit="return false;">
+        <select class="form-control"><option>Alle kategorier</option><option>Rejser</option><option>Økonomi</option><option>Sundhed</option></select>
+      </form>
+      <div class="grid grid-3">
+        <div class="card"><span class="tag">Rejser</span><h3 style="margin-top:12px;">Sådan planlægger du din første solorejse efter 50</h3><p>Tips til at komme i gang med at rejse alene — trygt og med overskud.</p><p style="font-size:.85rem;color:var(--ink-soft);">Ung-Igen Redaktion · 5. aug. 2026</p><a onclick="showView('article-detail')">Læs videre →</a></div>
+        <div class="card"><span class="tag">Økonomi</span><h3 style="margin-top:12px;">Sådan får du mest ud af efterlønnen</h3><p>Et par konkrete greb, der kan gøre en forskel på budgettet.</p><p style="font-size:.85rem;color:var(--ink-soft);">Ung-Igen Redaktion · 2. aug. 2026</p><a onclick="showView('article-detail')">Læs videre →</a></div>
+        <div class="card"><span class="tag">Sundhed</span><h3 style="margin-top:12px;">5 øvelser der holder kroppen i gang</h3><p>Enkle øvelser du kan lave derhjemme uden udstyr.</p><p style="font-size:.85rem;color:var(--ink-soft);">Ung-Igen Redaktion · 28. jul. 2026</p><a onclick="showView('article-detail')">Læs videre →</a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ARTICLE DETAIL ============ -->
+<div class="view" id="view-article-detail">
+  <section class="section--tight">
+    <div class="container-narrow" style="max-width:700px;">
+      <span class="tag">Rejser</span>
+      <h1 style="margin-top:12px;">Sådan planlægger du din første solorejse efter 50</h1>
+      <p style="color:var(--ink-soft);">Ung-Igen Redaktion · 5. august 2026</p>
+      <hr class="divider-line" />
+      <p style="font-size:1.05rem;">At rejse alene for første gang kan føles som et stort skridt — men det er også en af de mest givende måder at genopdage sig selv på. Start med en kort tur til en destination, hvor du føler dig tryg, og byg gradvist på erfaringen...</p>
+      <p style="font-size:1.05rem;">(Dette er eksempeltekst til demo-formål.)</p>
+      <div style="margin-top:32px;"><a onclick="showView('articles')">← Tilbage til alle artikler</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ MEMBERSHIP ============ -->
+<div class="view" id="view-membership">
+  <section class="section--tight">
+    <div class="container-narrow" style="max-width:900px;text-align:center;">
+      <span class="eyebrow">Medlemskab</span>
+      <h1>Billigt nok til, at beslutningen er nem</h1>
+      <p style="max-width:56ch;margin:0 auto;">Fuld adgang til fællesskab, arrangementer, medlemsrabatter og inspiration — fra 69 kr. om måneden.</p>
+    </div>
+    <div class="container-narrow grid grid-2" style="margin-top:36px;">
+      <div class="hero-card">
+        <span class="eyebrow">Solo</span>
+        <h2>Ung-Igen Solo</h2>
+        <p>Fuld adgang til fællesskab, arrangementer, rabatter og indhold.</p>
+        <div class="price">69 kr. <small>/ md.</small></div>
+        <p style="color:var(--ink-soft);">eller 599 kr. pr. år</p>
+        <hr class="divider-line" />
+        <button class="btn btn-primary btn-block" onclick="showView('signup-confirm')">Vælg årligt medlemskab</button>
+        <button class="btn btn-outline btn-block" style="margin-top:10px;" onclick="showView('signup-confirm')">Vælg månedligt medlemskab</button>
+      </div>
+      <div class="hero-card">
+        <span class="eyebrow">Par</span>
+        <h2>Ung-Igen Par</h2>
+        <p>To personer på samme adresse deler ét medlemskab.</p>
+        <div class="price">99 kr. <small>/ md.</small></div>
+        <p style="color:var(--ink-soft);">eller 899 kr. pr. år</p>
+        <hr class="divider-line" />
+        <button class="btn btn-primary btn-block" onclick="showView('signup-confirm')">Vælg årligt medlemskab</button>
+        <button class="btn btn-outline btn-block" style="margin-top:10px;" onclick="showView('signup-confirm')">Vælg månedligt medlemskab</button>
+      </div>
+    </div>
+    <div class="container-narrow" style="margin-top:44px;max-width:700px;">
+      <div class="card"><h3>Giv det i julegave</h3><p>Et års medlemskab af Ung-Igen kan sælges som julegave med digitalt eller fysisk gavekort.</p><button class="btn btn-teal" onclick="showView('giftcard')">Køb gavekort</button></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SIGNUP CONFIRMATION ============ -->
+<div class="view" id="view-signup-confirm">
+  <section class="section" style="text-align:center;">
+    <div class="container-narrow" style="max-width:600px;">
+      <div style="font-size:2.6rem;">🎉</div>
+      <h1>Velkommen til Ung-Igen!</h1>
+      <p>(Demo) Dit medlemskab ville nu være aktivt. Gå på opdagelse i grupper, arrangementer og medlemsrabatter.</p>
+      <button class="btn btn-primary" onclick="showView('home')">Til forsiden</button>
+    </div>
+  </section>
+</div>
+
+<!-- ============ GIFT CARD ============ -->
+<div class="view" id="view-giftcard">
+  <section class="section--tight">
+    <div class="container-narrow" style="max-width:640px;">
+      <span class="eyebrow">De har allerede alt</span>
+      <h1>Giv dem noget at glæde sig til</h1>
+      <p>Et års medlemskab af Ung-Igen — leveres digitalt med det samme, eller som fysisk gavekort.</p>
+      <form class="card" style="margin-top:22px;" onsubmit="event.preventDefault(); showView('giftcard-confirm');">
+        <div class="form-field"><label>Medlemskab</label><select class="form-control"><option>Ung-Igen Solo — 599 kr. / år</option><option>Ung-Igen Par — 899 kr. / år</option></select></div>
+        <hr class="divider-line" />
+        <h3>Fra dig</h3>
+        <div class="form-field"><label>Dit navn</label><input class="form-control" required /></div>
+        <div class="form-field"><label>Din e-mail</label><input type="email" class="form-control" required /></div>
+        <h3>Til modtageren</h3>
+        <div class="form-field"><label>Modtagers navn</label><input class="form-control" required /></div>
+        <div class="form-field"><label>Personlig hilsen</label><textarea class="form-control" rows="3" placeholder="De har allerede alt. Her er noget at glæde sig til."></textarea></div>
+        <div class="form-field"><label>Levering</label><select class="form-control"><option>Digitalt gavekort (sendes på e-mail)</option><option>Fysisk gavekort (sendes med post)</option></select></div>
+        <button type="submit" class="btn btn-primary btn-block">Køb gavekort</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- ============ GIFT CARD CONFIRMATION ============ -->
+<div class="view" id="view-giftcard-confirm">
+  <section class="section" style="text-align:center;">
+    <div class="container-narrow" style="max-width:600px;">
+      <div style="font-size:2.6rem;">🎁</div>
+      <h1>Gavekortet er klar!</h1>
+      <p>(Demo) Tak for dit køb. Gavekortet er nu oprettet.</p>
+      <div class="hero-card" style="text-align:left;margin-top:22px;">
+        <span class="eyebrow">Gavekortkode</span>
+        <h2 style="font-family:var(--font-body);letter-spacing:.05em;">UNGIGEN-7X3K9Q</h2>
+        <p><strong>Medlemskab:</strong> Ung-Igen Solo</p>
+        <p><strong>Værdi:</strong> 599 kr.</p>
+        <p><strong>Gyldig til:</strong> 11. august 2027</p>
+      </div>
+      <button class="btn btn-outline" style="margin-top:22px;" onclick="showView('home')">Til forsiden</button>
+    </div>
+  </section>
+</div>
+
+<!-- ============ LOGIN ============ -->
+<div class="view" id="view-login">
+  <section class="section--tight">
+    <div class="container-narrow" style="max-width:440px;">
+      <h1>Log ind</h1>
+      <p>Velkommen tilbage til Ung-Igen.</p>
+      <div class="notice">Demo: indtast hvad som helst og tryk "Log ind" — der tjekkes ikke noget mod en database.</div>
+      <form class="card" onsubmit="event.preventDefault(); simulateLogin();">
+        <div class="form-field"><label>E-mail</label><input type="email" class="form-control" /></div>
+        <div class="form-field"><label>Adgangskode</label><input type="password" class="form-control" /></div>
+        <button type="submit" class="btn btn-primary btn-block">Log ind</button>
+      </form>
+      <p style="margin-top:16px;text-align:center;">Ikke medlem endnu? <a onclick="showView('register')">Opret profil</a></p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ REGISTER ============ -->
+<div class="view" id="view-register">
+  <section class="section--tight">
+    <div class="container-narrow" style="max-width:480px;">
+      <h1>Opret din profil</h1>
+      <p>Bliv en del af Ung-Igen på få minutter.</p>
+      <form class="card" onsubmit="event.preventDefault(); simulateLogin();">
+        <div class="grid grid-2" style="gap:12px;">
+          <div class="form-field"><label>Fornavn</label><input class="form-control" /></div>
+          <div class="form-field"><label>Efternavn</label><input class="form-control" /></div>
+        </div>
+        <div class="form-field"><label>E-mail</label><input type="email" class="form-control" /></div>
+        <div class="form-field"><label>Adgangskode</label><input type="password" class="form-control" /></div>
+        <button type="submit" class="btn btn-primary btn-block">Opret profil</button>
+      </form>
+      <p style="margin-top:16px;text-align:center;">Har du allerede en profil? <a onclick="showView('login')">Log ind</a></p>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PROFILE ============ -->
+<div class="view" id="view-profile">
+  <section class="section--tight">
+    <div class="container-narrow" style="max-width:760px;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div class="avatar-circle" style="width:56px;height:56px;font-size:1.3rem;">A</div>
+        <div><h1 style="margin:0;">Anne Sørensen</h1><p style="margin:0;">anne@eksempel.dk</p></div>
+      </div>
+      <div class="card" style="margin-top:24px;"><h3>Medlemskab</h3><p>Du har <strong>Ung-Igen Solo</strong> (Årligt), aktivt siden 3. jan. 2026.</p></div>
+      <div class="grid grid-2" style="margin-top:22px;">
+        <div class="card"><h3>Mine grupper</h3><p><a onclick="showView('group-detail')">Gåklub Nordsjælland</a></p></div>
+        <div class="card"><h3>Mine arrangementer</h3><p><a onclick="showView('event-detail')">Gåtur & kaffe i Dyrehaven</a> — Bekræftet</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container-narrow footer-grid">
+    <div><div class="brand" style="color:#fff;margin-bottom:12px;"><span class="sun-mark"></span> Ung-Igen</div><p>Du bliver ældre. Det behøver dit liv ikke gøre.</p></div>
+    <div><h4>Fællesskab</h4><p><a onclick="showView('community')">Mød</a></p><p><a onclick="showView('events')">Oplev</a></p><p><a onclick="showView('offers')">Få mere</a></p><p><a onclick="showView('articles')">Bliv inspireret</a></p></div>
+    <div><h4>Medlemskab</h4><p><a onclick="showView('membership')">Priser</a></p><p><a onclick="showView('giftcard')">Giv Ung-Igen i gave</a></p></div>
+    <div><h4>Konto</h4><p><a onclick="showView('login')">Log ind</a></p><p><a onclick="showView('register')">Opret profil</a></p></div>
+  </div>
+  <div class="container-narrow" style="margin-top:32px;font-size:.82rem;opacity:.6;">&copy; 2026 Ung-Igen. Demo-version — alle rettigheder forbeholdes.</div>
+</footer>
+
+<script>
+function showView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  var target = document.getElementById('view-' + name);
+  if (target) target.classList.add('active');
+  document.querySelectorAll('.navlink').forEach(b => b.classList.toggle('active', b.dataset.view === name));
+  window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+}
+
+function simulateLogin() {
+  document.getElementById('navActions').innerHTML =
+    '<button class="btn btn-outline btn-sm" onclick="showView(\'profile\')">Min side</button>' +
+    '<button class="btn btn-teal btn-sm" onclick="simulateLogout()">Log ud</button>';
+  showView('profile');
+}
+
+function simulateLogout() {
+  document.getElementById('navActions').innerHTML =
+    '<button class="btn btn-outline btn-sm" onclick="showView(\'login\')">Log ind</button>' +
+    '<button class="btn btn-primary btn-sm" onclick="showView(\'membership\')">Bliv medlem</button>';
+  showView('home');
+}
+</script>
+
+</body>
+</html>
