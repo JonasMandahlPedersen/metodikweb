@@ -198,6 +198,47 @@ a:hover { color:var(--sunrise-2); }
   </section>
 </div>
 
+<!-- ============ EVENTS (OPLEV) ============ -->
+<div class="view" id="view-events">
+  <section class="section--tight">
+    <div class="container-narrow">
+      <span class="eyebrow">Oplev</span>
+      <h1>Kommende arrangementer</h1>
+      <p style="max-width:60ch;">Fra gåture, golf og padel til vinsmagning, restaurantbesøg, koncerter, foredrag og rejser.</p>
+      <form class="filter-bar" onsubmit="return false;">
+        <select class="form-control"><option>Alle lokalområder</option><option>Storkøbenhavn</option><option>Aarhus</option></select>
+        <select class="form-control"><option>Alle typer</option><option>UngIgen</option><option>Partner</option><option>Medlemsarrangeret</option></select>
+      </form>
+      <div class="grid grid-3">
+        <div class="card"><span class="badge-event-type badge-ungigen">UngIgen</span><h3 style="margin-top:12px;">Gåtur & kaffe i Dyrehaven</h3><p>Lørdag d. 22. august, 10:00</p><p style="font-size:.9rem;color:var(--ink-soft);">Dyrehaven, Klampenborg · Storkøbenhavn</p><p style="font-weight:700;">Gratis for medlemmer</p><a onclick="showView('event-detail')">Se detaljer →</a></div>
+        <div class="card"><span class="badge-event-type badge-partner">Partner</span><h3 style="margin-top:12px;">Vinsmagning: Toscana</h3><p>Lørdag d. 29. august, 18:30</p><p style="font-size:.9rem;color:var(--ink-soft);">Vinhuset, Frederiksberg · Storkøbenhavn</p><p style="font-weight:700;">195 kr.</p><a onclick="showView('event-detail')">Se detaljer →</a></div>
+        <div class="card"><span class="badge-event-type badge-medlem">Medlem</span><h3 style="margin-top:12px;">Padel for begyndere</h3><p>Søndag d. 30. august, 14:00</p><p style="font-size:.9rem;color:var(--ink-soft);">Padel Center Aarhus · Aarhus</p><p style="font-weight:700;">75 kr.</p><a onclick="showView('event-detail')">Se detaljer →</a></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ EVENT DETAIL ============ -->
+<div class="view" id="view-event-detail">
+  <section class="section--tight">
+    <div class="container-narrow" style="max-width:760px;">
+      <a onclick="showView('events')">← Tilbage til Oplev</a>
+      <span class="badge-event-type badge-ungigen" style="margin-top:16px;display:inline-block;">UngIgen</span>
+      <h1 style="margin-top:12px;">Gåtur & kaffe i Dyrehaven</h1>
+      <p style="font-size:1.05rem;">Lørdag d. 22. august 2026, 10:00 – 12:00</p>
+      <p style="color:var(--ink-soft);">Dyrehaven, Klampenborg · Storkøbenhavn</p>
+      <div class="card" style="margin:22px 0;">
+        <p>Rolig gåtur gennem Dyrehaven efterfulgt af kaffe og kage på Peter Lieps Hus. Vi går i et roligt tempo, så alle kan være med.</p>
+        <hr class="divider-line" />
+        <p><strong>Pris:</strong> Gratis for medlemmer</p>
+        <p><strong>Ledige pladser:</strong> 14</p>
+        <button class="btn btn-primary" onclick="alert('Demo: du er nu tilmeldt arrangementet.')">Tilmeld dig</button>
+      </div>
+      <h3>Tilmeldte medlemmer</h3>
+      <p>11 tilmeldt</p>
+    </div>
+  </section>
+</div>
 <!-- ============ COMMUNITY (MØD) ============ -->
 <div class="view" id="view-community">
   <section class="section--tight">
@@ -243,47 +284,6 @@ a:hover { color:var(--sunrise-2); }
   </section>
 </div>
 
-<!-- ============ EVENTS (OPLEV) ============ -->
-<div class="view" id="view-events">
-  <section class="section--tight">
-    <div class="container-narrow">
-      <span class="eyebrow">Oplev</span>
-      <h1>Kommende arrangementer</h1>
-      <p style="max-width:60ch;">Fra gåture, golf og padel til vinsmagning, restaurantbesøg, koncerter, foredrag og rejser.</p>
-      <form class="filter-bar" onsubmit="return false;">
-        <select class="form-control"><option>Alle lokalområder</option><option>Storkøbenhavn</option><option>Aarhus</option></select>
-        <select class="form-control"><option>Alle typer</option><option>UngIgen</option><option>Partner</option><option>Medlemsarrangeret</option></select>
-      </form>
-      <div class="grid grid-3">
-        <div class="card"><span class="badge-event-type badge-ungigen">UngIgen</span><h3 style="margin-top:12px;">Gåtur & kaffe i Dyrehaven</h3><p>Lørdag d. 22. august, 10:00</p><p style="font-size:.9rem;color:var(--ink-soft);">Dyrehaven, Klampenborg · Storkøbenhavn</p><p style="font-weight:700;">Gratis for medlemmer</p><a onclick="showView('event-detail')">Se detaljer →</a></div>
-        <div class="card"><span class="badge-event-type badge-partner">Partner</span><h3 style="margin-top:12px;">Vinsmagning: Toscana</h3><p>Lørdag d. 29. august, 18:30</p><p style="font-size:.9rem;color:var(--ink-soft);">Vinhuset, Frederiksberg · Storkøbenhavn</p><p style="font-weight:700;">195 kr.</p><a onclick="showView('event-detail')">Se detaljer →</a></div>
-        <div class="card"><span class="badge-event-type badge-medlem">Medlem</span><h3 style="margin-top:12px;">Padel for begyndere</h3><p>Søndag d. 30. august, 14:00</p><p style="font-size:.9rem;color:var(--ink-soft);">Padel Center Aarhus · Aarhus</p><p style="font-weight:700;">75 kr.</p><a onclick="showView('event-detail')">Se detaljer →</a></div>
-      </div>
-    </div>
-  </section>
-</div>
-
-<!-- ============ EVENT DETAIL ============ -->
-<div class="view" id="view-event-detail">
-  <section class="section--tight">
-    <div class="container-narrow" style="max-width:760px;">
-      <a onclick="showView('events')">← Tilbage til Oplev</a>
-      <span class="badge-event-type badge-ungigen" style="margin-top:16px;display:inline-block;">UngIgen</span>
-      <h1 style="margin-top:12px;">Gåtur & kaffe i Dyrehaven</h1>
-      <p style="font-size:1.05rem;">Lørdag d. 22. august 2026, 10:00 – 12:00</p>
-      <p style="color:var(--ink-soft);">Dyrehaven, Klampenborg · Storkøbenhavn</p>
-      <div class="card" style="margin:22px 0;">
-        <p>Rolig gåtur gennem Dyrehaven efterfulgt af kaffe og kage på Peter Lieps Hus. Vi går i et roligt tempo, så alle kan være med.</p>
-        <hr class="divider-line" />
-        <p><strong>Pris:</strong> Gratis for medlemmer</p>
-        <p><strong>Ledige pladser:</strong> 14</p>
-        <button class="btn btn-primary" onclick="alert('Demo: du er nu tilmeldt arrangementet.')">Tilmeld dig</button>
-      </div>
-      <h3>Tilmeldte medlemmer</h3>
-      <p>11 tilmeldt</p>
-    </div>
-  </section>
-</div>
 
 <!-- ============ OFFERS (FÅ MERE) ============ -->
 <div class="view" id="view-offers">
