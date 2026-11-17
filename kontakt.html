@@ -37,7 +37,7 @@
     margin-bottom: 48px;
   }
   .kontakt-headline em { font-style: italic; opacity: 0.6; }
-  .kontakt-phone {
+  .kontakt-phone, .kontakt-email, .kontakt-linkedin {
     font-family: var(--serif);
     font-size: clamp(1.8rem, 3vw, 2.4rem);
     color: #fff;
@@ -46,37 +46,17 @@
     padding-bottom: 4px;
     transition: border-color 0.2s;
   }
-  .kontakt-phone:hover { border-color: #fff; }
+  .kontakt-phone:hover, .kontakt-email:hover, .kontakt-linkedin:hover { border-color: #fff; }
   .kontakt-or {
     margin: 32px 0 12px;
     color: rgba(255,255,255,0.5);
     font-size: 0.95rem;
   }
-  .kontakt-email {
-    font-family: var(--serif);
-    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
-    color: #fff;
-    text-decoration: none;
-    border-bottom: 2px solid rgba(255,255,255,0.3);
-    padding-bottom: 4px;
-    transition: border-color 0.2s;
-  }
-  .kontakt-email:hover { border-color: #fff; }
   .cvr-line {
     margin-top: 56px;
     font-size: 0.82rem;
     color: rgba(255,255,255,0.45);
   }
-  .kontakt-linkedin {
-    margin-top: 12px;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.65);
-    text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding-bottom: 2px;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .kontakt-linkedin:hover { color: #fff; border-color: #fff; }
 </style>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -110,8 +90,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a href="tel:+4560892302" class="kontakt-phone">Ring 60 89 23 02</a>
   <p class="kontakt-or">Eller skriv til</p>
   <a href="mailto:jonas@metodik.dk" class="kontakt-email">jonas@metodik.dk</a>
-
+  <p class="kontakt-or">Eller besøg mig på</p>
   <a href="https://www.linkedin.com/in/jonas-mandahl-pedersen-604760/" target="_blank" rel="noopener" class="kontakt-linkedin">LinkedIn</a>
+
   <p class="cvr-line">Metodik · CVR 21550094</p>
 </div>
 
