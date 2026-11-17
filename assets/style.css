@@ -469,6 +469,8 @@ section { padding: 100px 80px; }
 
 .sector-banner-cta:hover { opacity: 0.88; }
 
+.sector-banner-alt { background: var(--accent); }
+
 /* ------------------------------------------
    PROBLEM SECTION
 ------------------------------------------ */
