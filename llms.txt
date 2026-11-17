@@ -1,0 +1,39 @@
+# Metodik
+
+> Metodik bygger AI-automatisering, SaaS-platforme og legacy-modernisering for virksomheder, og udarbejder uafhængige teknologi- og AI-rapporter for kommuner og virksomheder om borgerservice og kundeservice.
+
+Bag Metodik står Jonas Mandahl Pedersen, ingeniør og founder af WriteUpp.com (international klinikadministration) og Zuluzoft Ltd (hospitalssoftware). Baggrunden er systemer hvor følsomme data, sikkerhed og driftsstabilitet er udgangspunktet. Metodik er hjemmehørende i Hvidovre, Danmark (CVR 21550094).
+
+## Løsninger
+- [Løsninger](https://metodik.dk/losninger/): Oversigt over Metodiks tre kerneområder — AI-automatisering, SaaS-udvikling og legacy-modernisering.
+- [AI-automatisering](https://metodik.dk/losninger/ai-automatisering.html): Automatisering af support, databehandling og interne arbejdsgange med AI tilpasset konkrete flaskehalse.
+- [SaaS-udvikling](https://metodik.dk/losninger/saas-udvikling.html): Udvikling af komplette SaaS-platforme fra idé til driftsklar, skalerbar løsning.
+- [Legacy-modernisering](https://metodik.dk/losninger/legacy-modernisering.html): Modernisering fra Excel, Access og ældre systemer til driftssikre webløsninger.
+
+## Cases
+- [Cases](https://metodik.dk/cases/): Eksempler på projekter Metodik har løst for virksomheder.
+- [Kundeportal og booking](https://metodik.dk/cases/kundeportal-og-booking.html): Samling af kundeoplevelse, administration og booking-workflow i én platform.
+- [AI til support og backoffice](https://metodik.dk/cases/ai-til-support-og-backoffice.html): Automatisering af gentagne henvendelser og svarudkast med AI.
+- [Fra Excel til websystem](https://metodik.dk/cases/fra-excel-til-websystem.html): Modernisering af driftskritiske Excel-processer til et webbaseret system.
+
+## Artikler
+- [Artikler](https://metodik.dk/artikler/): Praktiske artikler om AI-automatisering, SaaS-udvikling og modernisering, skrevet af Jonas Mandahl Pedersen.
+- [Hvad koster det at udvikle en SaaS-platform?](https://metodik.dk/artikler/hvad-koster-det-at-udvikle-en-saas-platform.html): Hvad der reelt driver budgettet i et SaaS-projekt.
+- [7 tegn på at Excel er blevet for lille](https://metodik.dk/artikler/7-tegn-paa-at-excel-er-blevet-for-lille.html): Syv tegn på at et regneark koster mere end det sparer.
+- [AI i små og mellemstore virksomheder](https://metodik.dk/artikler/ai-i-smaa-og-mellemstore-virksomheder.html): Praktisk guide til hvordan SMV'er kommer i gang med AI.
+- [Azure vs. AWS til SaaS](https://metodik.dk/artikler/azure-vs-aws-til-saas.html): Hvad der faktisk adskiller de to cloud-platforme til SaaS-udvikling.
+- [Hvornår bør man bygge sit eget system?](https://metodik.dk/artikler/hvornaar-boer-man-bygge-sit-eget-system.html): Guide til valget mellem standardsoftware og skræddersyet udvikling.
+- [Sådan løfter teknologi borgeroplevelsen i kommunen](https://metodik.dk/artikler/teknologi-loefter-borgeroplevelsen-i-kommunen.html): Hvorfor en uafhængig rapport er det rigtige første skridt for kommunale afdelinger.
+- [Sådan løfter teknologi kundeoplevelsen i virksomheden](https://metodik.dk/artikler/teknologi-loefter-kundeoplevelsen-i-virksomheden.html): Hvorfor en uafhængig rapport er det rigtige første skridt for virksomheder.
+
+## Kommuner
+- [Kommuner](https://metodik.dk/kommuner.html): Uafhængig teknologi- og AI-rapport samt undervisning for kommuner og forvaltninger om borgerservice.
+
+## Virksomheder
+- [Virksomheder](https://metodik.dk/virksomheder.html): Uafhængig teknologi- og AI-rapport samt undervisning for virksomheder om kundeservice.
+
+## Om
+- [Om Metodik](https://metodik.dk/om.html): Om Jonas Mandahl Pedersen og baggrunden for Metodik.
+
+## Kontakt
+- [Kontakt](https://metodik.dk/kontakt.html): Telefon, e-mail og LinkedIn til Metodik.

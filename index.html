@@ -3,21 +3,63 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Metodik | Premium design til AI-, SaaS- og forretningssystemer</title>
-  <meta name="description" content="Metodik udvikler AI-løsninger, SaaS-platforme og moderne forretningssystemer. Designet her er bygget til at tiltrække større kunder.">
+  <title>Metodik – AI-automatisering, SaaS-udvikling og legacy-modernisering</title>
+  <meta name="description" content="Metodik bygger AI-automatisering, SaaS-platforme og legacy-modernisering for virksomheder, med erfaring fra hospitalssoftware og international SaaS.">
   <link rel="canonical" href="https://metodik.dk/">
-  <meta property="og:title" content="Metodik | Premium design til AI-, SaaS- og forretningssystemer">
-  <meta property="og:description" content="Metodik udvikler AI-løsninger, SaaS-platforme og moderne forretningssystemer. Designet her er bygget til at tiltrække større kunder.">
+  <meta property="og:title" content="Metodik – AI-automatisering, SaaS-udvikling og legacy-modernisering">
+  <meta property="og:description" content="Metodik bygger AI-automatisering, SaaS-platforme og legacy-modernisering for virksomheder, med erfaring fra hospitalssoftware og international SaaS.">
   <meta property="og:url" content="https://metodik.dk/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Metodik">
+  <meta property="og:locale" content="da_DK">
+  <meta property="og:image" content="https://metodik.dk/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://metodik.dk/assets/og-image.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/style.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "Metodik", "url": "https://metodik.dk", "description": "Metodik udvikler AI, SaaS og webbaserede forretningssystemer for virksomheder.", "areaServed": "DK", "serviceType": ["AI automatisering", "SaaS udvikling", "Modernisering af legacy systemer"]}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://metodik.dk/#organization",
+        "name": "Metodik",
+        "url": "https://metodik.dk",
+        "logo": "https://metodik.dk/favicon.ico",
+        "image": "https://metodik.dk/assets/og-image.jpg",
+        "description": "Metodik bygger AI-automatisering, SaaS-platforme og legacy-modernisering for virksomheder, samt uafhængige teknologi- og AI-rapporter for kommuner om borgerservice.",
+        "telephone": "+4560892302",
+        "email": "jonas@metodik.dk",
+        "identifier": { "@type": "PropertyValue", "name": "CVR", "value": "21550094" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Hvidovre", "addressCountry": "DK" },
+        "areaServed": "DK",
+        "founder": { "@id": "https://metodik.dk/#jonas" },
+        "sameAs": ["https://www.linkedin.com/in/jonas-mandahl-pedersen-604760/"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://metodik.dk/#jonas",
+        "name": "Jonas Mandahl Pedersen",
+        "jobTitle": "Founder & Ingeniør",
+        "image": "https://metodik.dk/assets/jonas.jpg",
+        "worksFor": { "@id": "https://metodik.dk/#organization" },
+        "sameAs": ["https://www.linkedin.com/in/jonas-mandahl-pedersen-604760/", "https://writeupp.com"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://metodik.dk/#website",
+        "url": "https://metodik.dk",
+        "name": "Metodik",
+        "publisher": { "@id": "https://metodik.dk/#organization" },
+        "inLanguage": "da-DK"
+      }
+    ]
+  }
+  </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -35,10 +77,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav>
   <a href="/" class="nav-logo">Metodik</a>
   <ul class="nav-links">
-    <li><a href="#services">Løsninger</a></li>
-    <li><a href="#cases">Cases</a></li>
+    <li><a href="/losninger/">Løsninger</a></li>
+    <li><a href="/cases/">Cases</a></li>
+    <li><a href="/artikler/">Artikler</a></li>
     <li><a href="/kommuner.html">Kommuner</a></li>
-    <li><a href="#om">Om</a></li>
+    <li><a href="/om.html">Om</a></li>
     <li><a href="/kontakt.html" class="nav-cta">Kontakt</a></li>
   </ul>
 </nav>
@@ -59,7 +102,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
   <div class="hero-right">
-    <img src="/assets/jonas.png" alt="Founder" class="hero-photo" id="heroPhoto">
+    <!-- TODO: tilføj <source srcset="/assets/jonas.webp" type="image/webp"> her, når en rigtig WebP-fil er genereret (ingen WebP-encoder tilgængelig i dette miljø) -->
+    <picture>
+      <img src="/assets/jonas.jpg" alt="Jonas Mandahl Pedersen, founder af Metodik" class="hero-photo" id="heroPhoto" width="900" height="1200" fetchpriority="high">
+    </picture>
     <div class="hero-photo-tint"></div>
     <div class="hero-bio-card">
       <p class="hero-bio-name">Jonas Mandahl Pedersen</p>
@@ -67,7 +113,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-bio-links">
         <p>Founder af</p>
         <a href="https://writeupp.com" target="_blank" class="bio-badge">WriteUpp.com</a>
-        <a href="#" class="bio-badge">Zuluzoft Ltd</a>
+        <span class="bio-badge">Zuluzoft Ltd</span>
       </div>
     </div>
   </div>
@@ -90,19 +136,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h2 class="section-heading">Tre områder, <em>én klar tilgang</em></h2>
   <div class="services-grid">
     <div class="service-card">
-      <span class="service-icon">🤖</span>
+      <span class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="17" r="2"/><circle cx="19" cy="17" r="2"/><path d="M12 7v4M12 11l-5 4M12 11l5 4"/></svg></span>
       <h3 class="service-title">AI-automatisering</h3>
       <p class="service-desc">Automatisér support, databehandling og interne arbejdsgange med løsninger der tager udgangspunkt i konkrete flaskehalse — ikke buzzwords.</p>
       <a href="/losninger/ai-automatisering.html" class="service-link">Læs mere</a>
     </div>
     <div class="service-card">
-      <span class="service-icon">☁️</span>
+      <span class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 .5-7.97A5.5 5.5 0 0 0 7.1 8.5 4 4 0 0 0 7 18Z"/></svg></span>
       <h3 class="service-title">SaaS-platforme</h3>
       <p class="service-desc">Byg en komplet platform med brugerroller, administration, betaling og cloudarkitektur — fra idé til produkt der kan sælges og skaleres.</p>
       <a href="/losninger/saas-udvikling.html" class="service-link">Læs mere</a>
     </div>
     <div class="service-card">
-      <span class="service-icon">📈</span>
+      <span class="service-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l5-5 4 4 7-8"/><path d="M15 8h5v5"/></svg></span>
       <h3 class="service-title">Legacy-modernisering</h3>
       <p class="service-desc">Flyt fra Excel, Access eller ældre systemer til et moderne websystem med bedre struktur, færre fejl og et fundament der kan vokse med jer.</p>
       <a href="/losninger/legacy-modernisering.html" class="service-link">Læs mere</a>
@@ -155,7 +201,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h2 class="section-heading">Eksempler på <em>hvad vi har løst</em></h2>
   <div class="cases-grid">
     <div class="case-card">
-      <div class="case-top"><span class="case-number">01</span></div>
+      <div class="case-top">
+        <svg class="case-illustration" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/><path d="M8 13h2M8 17h2M14 13h2M14 17h2"/></svg>
+        <span class="case-number">01</span>
+      </div>
       <div class="case-body">
         <p class="case-tag">SaaS · Klinikadministration</p>
         <h3 class="case-title">Komplet platform til sundhedssektoren</h3>
@@ -163,7 +212,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="case-card">
-      <div class="case-top"><span class="case-number">02</span></div>
+      <div class="case-top">
+        <svg class="case-illustration" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span class="case-number">02</span>
+      </div>
       <div class="case-body">
         <p class="case-tag">Enterprise · Hospitalssoftware</p>
         <h3 class="case-title">Kritisk software til hospitalsmiljø</h3>
@@ -171,7 +223,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </div>
     <div class="case-card">
-      <div class="case-top"><span class="case-number">03</span></div>
+      <div class="case-top">
+        <svg class="case-illustration" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="5" rx="1"/><rect x="13" y="10" width="8" height="11" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/></svg>
+        <span class="case-number">03</span>
+      </div>
       <div class="case-body">
         <p class="case-tag">Modernisering · SMV</p>
         <h3 class="case-title">Fra Excel til skalerbart websystem</h3>
@@ -183,10 +238,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ABOUT -->
 <div class="about-section" id="om">
-  <div class="about-inner">
-    <div class="about-photo-wrap">
-      <img src="assets/jonas.png" alt="Founder, Metodik" class="about-photo" id="aboutPhoto">
-    </div>
+  <div class="about-inner about-inner-full">
     <div class="about-content">
       <p class="section-label">Om Metodik</p>
       <h2 class="about-name">Ingeniør. Builder.<br>Founder.</h2>
@@ -199,7 +251,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </p>
       <div class="about-ventures">
         <a href="https://writeupp.com" target="_blank" class="venture-tag"><span class="dot"></span>WriteUpp.com</a>
-        <a href="#" class="venture-tag"><span class="dot"></span>Zuluzoft Ltd</a>
+        <span class="venture-tag"><span class="dot"></span>Zuluzoft Ltd</span>
         <span class="venture-tag"><span class="dot"></span>Metodik</span>
       </div>
     </div>
@@ -220,8 +272,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="/losninger/">Løsninger</a>
     <a href="/kommuner.html">Kommuner</a>
     <a href="/artikler/">Artikler</a>
-    <a href="#om">Om</a>
-    <a href="#kontakt">Kontakt</a>
+    <a href="/om.html">Om</a>
+    <a href="/kontakt.html">Kontakt</a>
   </div>
 </footer>
 
