@@ -4,25 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kontakt — Metodik</title>
-<meta name="description" content="Book 30 minutters sparring med Metodik. Ring på +45 60 89 23 02 eller skriv til kontakt@metodik.dk.">
+<meta name="description" content="Kontakt Metodik. Ring på +45 60 89 23 02 eller skriv til jonas@metodik.dk.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 <style>
-  .kontakt-hero {
+  .kontakt-simple {
     min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 80px;
-  }
-  .kontakt-left {
-    background: var(--accent);
-    color: #fff;
-    padding: 80px 72px 80px 80px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
+    text-align: center;
+    background: var(--accent);
+    color: #fff;
+    padding: 160px 24px 80px;
   }
   .kontakt-eyebrow {
     font-size: 0.75rem;
@@ -34,188 +31,41 @@
   }
   .kontakt-headline {
     font-family: var(--serif);
-    font-size: clamp(2.4rem, 3.5vw, 3.6rem);
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
     line-height: 1.08;
     letter-spacing: -0.02em;
-    margin-bottom: 24px;
+    margin-bottom: 48px;
   }
   .kontakt-headline em { font-style: italic; opacity: 0.6; }
-  .kontakt-intro {
-    color: rgba(255,255,255,0.65);
-    font-size: 1.05rem;
-    line-height: 1.8;
-    max-width: 440px;
-    margin-bottom: 56px;
-  }
-  .kontakt-phone-cta {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 24px 28px;
-    border: 1px solid rgba(255,255,255,0.14);
-    border-radius: 8px;
+  .kontakt-phone {
+    font-family: var(--serif);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: #fff;
     text-decoration: none;
-    transition: background 0.2s;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 4px;
+    transition: border-color 0.2s;
   }
-  .kontakt-phone-cta:hover { background: rgba(255,255,255,0.07); }
-  .kontakt-phone-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2rem;
-    flex-shrink: 0;
-  }
-  .kontakt-phone-label {
-    display: block;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 5px;
-  }
-  .kontakt-phone-number {
-    font-family: var(--serif);
-    font-size: 1.4rem;
-    color: #fff;
-    line-height: 1.2;
-  }
+  .kontakt-phone:hover { border-color: #fff; }
   .kontakt-or {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 28px 0;
-    color: rgba(255,255,255,0.4);
-    font-size: 0.85rem;
-  }
-  .kontakt-or::before, .kontakt-or::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: rgba(255,255,255,0.14);
-  }
-  .kontakt-form { display: flex; flex-direction: column; gap: 18px; }
-  .form-field { display: flex; flex-direction: column; gap: 8px; }
-  .form-field label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-  }
-  .form-field input, .form-field textarea {
-    font-family: var(--sans);
-    font-size: 0.95rem;
-    color: #fff;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.16);
-    border-radius: 6px;
-    padding: 12px 16px;
-    resize: vertical;
-  }
-  .form-field input::placeholder, .form-field textarea::placeholder { color: rgba(255,255,255,0.35); }
-  .form-field input:focus, .form-field textarea:focus { outline: none; border-color: rgba(255,255,255,0.4); }
-  .kontakt-form-submit {
-    align-self: flex-start;
-    margin-top: 4px;
-    padding: 14px 32px;
-    border: none;
-    border-radius: 4px;
-    background: #fff;
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-  .kontakt-form-submit:hover { opacity: 0.88; }
-  .kontakt-form-sent {
-    margin-top: 20px;
-    padding: 16px 20px;
-    border-radius: 6px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.16);
-    font-size: 0.92rem;
-  }
-  .kontakt-right {
-    background: var(--paper);
-    padding: 80px 80px 80px 72px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .kontakt-right-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent-light);
-    margin-bottom: 24px;
-  }
-  .kontakt-right-heading {
-    font-family: var(--serif);
-    font-size: 1.9rem;
-    letter-spacing: -0.02em;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-  .kontakt-right-text {
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 48px;
-    max-width: 420px;
-  }
-  .expect-box {
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    overflow: hidden;
-    background: #fff;
-    margin-bottom: 24px;
-  }
-  .expect-box-header {
-    background: var(--ink);
-    padding: 18px 28px;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    margin: 32px 0 12px;
     color: rgba(255,255,255,0.5);
+    font-size: 0.95rem;
   }
-  .expect-item {
-    display: flex;
-    gap: 16px;
-    padding: 18px 28px;
-    border-bottom: 1px solid var(--rule);
-    align-items: flex-start;
+  .kontakt-email {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 4px;
+    transition: border-color 0.2s;
   }
-  .expect-item:last-child { border-bottom: none; }
-  .expect-check {
-    color: var(--accent-light);
-    font-weight: 700;
-    font-size: 0.85rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .expect-text {
-    font-size: 0.92rem;
-    color: #3a3a3a;
-    line-height: 1.55;
-  }
+  .kontakt-email:hover { border-color: #fff; }
   .cvr-line {
+    margin-top: 56px;
     font-size: 0.82rem;
-    color: var(--muted);
-    margin-top: 8px;
-  }
-  @media (max-width: 900px) {
-    .kontakt-hero { grid-template-columns: 1fr; min-height: auto; }
-    .kontakt-left { padding: 80px 24px 56px; }
-    .kontakt-right { padding: 56px 24px 80px; }
+    color: rgba(255,255,255,0.45);
   }
 </style>
 <!-- Google Tag Manager -->
@@ -243,69 +93,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </ul>
 </nav>
 
-<div class="kontakt-hero">
-  <div class="kontakt-left">
-    <p class="kontakt-eyebrow">Kontakt</p>
-    <h1 class="kontakt-headline">Lad os tage<br><em>en snak</em></h1>
-    <p class="kontakt-intro">Ring eller skriv — så finder vi et tidspunkt til 30 minutters uforpligtende sparring om jeres situation.</p>
+<div class="kontakt-simple">
+  <p class="kontakt-eyebrow">Kontakt</p>
+  <h1 class="kontakt-headline">Lad os tage<br><em>en snak</em></h1>
 
-    <a href="tel:+4560892302" class="kontakt-phone-cta">
-      <div class="kontakt-phone-icon">📞</div>
-      <div>
-        <span class="kontakt-phone-label">Ring</span>
-        <span class="kontakt-phone-number">60 89 23 02</span>
-      </div>
-    </a>
+  <a href="tel:+4560892302" class="kontakt-phone">Ring 60 89 23 02</a>
+  <p class="kontakt-or">Eller skriv til</p>
+  <a href="mailto:jonas@metodik.dk" class="kontakt-email">jonas@metodik.dk</a>
 
-    <div class="kontakt-or"><span>eller</span></div>
-
-    <form class="kontakt-form" id="kontaktForm" action="https://formsubmit.co/jonas@metodik.dk" method="POST">
-      <input type="hidden" name="_subject" value="Ny henvendelse fra metodik.dk">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://metodik.dk/kontakt.html?sent=1">
-      <div class="form-field">
-        <label for="f-navn">Navn</label>
-        <input type="text" id="f-navn" name="Navn" required>
-      </div>
-      <div class="form-field">
-        <label for="f-email">E-mail</label>
-        <input type="email" id="f-email" name="Email" required>
-      </div>
-      <div class="form-field">
-        <label for="f-besked">Besked</label>
-        <textarea id="f-besked" name="Besked" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="kontakt-form-submit">Send besked</button>
-    </form>
-    <div class="kontakt-form-sent" id="kontaktSent" style="display:none;">Tak for din besked — vi vender tilbage hurtigst muligt.</div>
-  </div>
-
-  <div class="kontakt-right">
-    <p class="kontakt-right-label">Hvad sker der til sparringen?</p>
-    <h2 class="kontakt-right-heading">30 minutter der<br>faktisk giver noget</h2>
-    <p class="kontakt-right-text">Ingen salgspitch. Vi lytter til jeres situation, stiller de spørgsmål der er nødvendige — og giver en ærlig vurdering af hvad der giver mening for jer.</p>
-    <div class="expect-box">
-      <div class="expect-box-header">Hvad I kan forvente</div>
-      <div class="expect-item">
-        <span class="expect-check">✓</span>
-        <span class="expect-text">Vi lytter til jeres situation og stiller konkrete spørgsmål om processer og behov</span>
-      </div>
-      <div class="expect-item">
-        <span class="expect-check">✓</span>
-        <span class="expect-text">I får en ærlig vurdering — inkl. hvis standardsoftware passer bedre end custom-udvikling</span>
-      </div>
-      <div class="expect-item">
-        <span class="expect-check">✓</span>
-        <span class="expect-text">Hvis det giver mening, skitserer vi hvad et projekt kunne indeholde og hvad det realistisk koster</span>
-      </div>
-      <div class="expect-item">
-        <span class="expect-check">✓</span>
-        <span class="expect-text">Ingen forpligtelse og ingen opfølgende salgskald efterfølgende</span>
-      </div>
-    </div>
-    <p class="cvr-line">Metodik · CVR 21550094</p>
-  </div>
+  <p class="cvr-line">Metodik · CVR 21550094</p>
 </div>
 
 <footer>
@@ -319,11 +115,5 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<script>
-  if (new URLSearchParams(window.location.search).get('sent') === '1') {
-    document.getElementById('kontaktForm').style.display = 'none';
-    document.getElementById('kontaktSent').style.display = 'block';
-  }
-</script>
 </body>
 </html>
