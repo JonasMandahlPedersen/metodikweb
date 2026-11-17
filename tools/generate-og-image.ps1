@@ -28,15 +28,31 @@ $g.Clear($bgColor)
 $accentBrush = New-Object System.Drawing.SolidBrush($accentColor)
 $g.FillRectangle($accentBrush, 0, 0, 10, $height)
 
-# "Metodik" wordmark
-$titleFont = New-Object System.Drawing.Font("Georgia", 72, [System.Drawing.FontStyle]::Regular)
+# "Metodik" wordmark — skal fylde ca. 40% af billedbredden (480px af 1200px)
+$marginX = 90
+$targetTitleWidth = $width * 0.40
+$titleText = "Metodik"
+$titleSizePx = 60.0
+$titleFont = $null
+for ($i = 0; $i -lt 40; $i++) {
+  if ($titleFont) { $titleFont.Dispose() }
+  $titleFont = New-Object System.Drawing.Font("Georgia", $titleSizePx, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Pixel)
+  $measured = $g.MeasureString($titleText, $titleFont, [System.Drawing.PointF]::new(0,0), [System.Drawing.StringFormat]::GenericTypographic)
+  if ([Math]::Abs($measured.Width - $targetTitleWidth) -lt 1) { break }
+  $titleSizePx = $titleSizePx * ($targetTitleWidth / $measured.Width)
+}
 $titleBrush = New-Object System.Drawing.SolidBrush($textColor)
-$g.DrawString("Metodik", $titleFont, $titleBrush, 90, 230)
+$titleHeight = $g.MeasureString($titleText, $titleFont, [System.Drawing.PointF]::new(0,0), [System.Drawing.StringFormat]::GenericTypographic).Height
+$titleY = 230
+$g.DrawString($titleText, $titleFont, $titleBrush, (New-Object System.Drawing.PointF($marginX, $titleY)), [System.Drawing.StringFormat]::GenericTypographic)
 
-# Tagline
-$tagFont = New-Object System.Drawing.Font("Segoe UI", 30, [System.Drawing.FontStyle]::Regular)
+# Tagline — mindst 48px
+$tagFont = New-Object System.Drawing.Font("Segoe UI", 48, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Pixel)
 $tagBrush = New-Object System.Drawing.SolidBrush($accentColor)
-$g.DrawString("Systemer der faktisk fjerner arbejde", $tagFont, $tagBrush, 90, 340)
+$tagY = $titleY + $titleHeight + 28
+$g.DrawString("Systemer der faktisk fjerner arbejde", $tagFont, $tagBrush, (New-Object System.Drawing.PointF($marginX, $tagY)), [System.Drawing.StringFormat]::GenericTypographic)
+
+Write-Output ("Metodik-bredde: {0:N0}px (maal: {1:N0}px) ved fontstoerrelse {2:N1}px" -f $measured.Width, $targetTitleWidth, $titleSizePx)
 
 $g.Flush()
 
